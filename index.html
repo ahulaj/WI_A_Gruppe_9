@@ -11,7 +11,40 @@
     <h1>Rezeptverwalter</h1>
   </header>
 
-  <main></main>
+  <main>
+    <section id="ansicht-neues-rezept">
+        <h2 id="formular-titel">Neues Rezept</h2>
+
+        <form id="rezept-formular">
+            <div class="formular-feld">
+                <label for="rezept-name">Name des Rezepts</label>
+                <input type="text" id="rezept-name" name="rezept-name" placeholder="z. B. Spaghetti Bolognese">
+            </div>
+
+            <div class="formular-feld">
+                <label for="rezept-kategorie">Kategorie</label>
+                <select id="rezept-kategorie" name="rezept-kategorie">
+                    <option value="fruehstueck">Frühstück</option>
+                    <option value="hauptgericht" selected>Hauptgericht</option>
+                    <option value="dessert">Dessert</option>
+                    <option value="snack">Snack</option>
+                </select>
+            </div>
+
+            <div class="formular-feld">
+                <label for="rezept-zutaten">Zutaten (eine pro Zeile)</label>
+                <textarea id="rezept-zutaten" name="rezept-zutaten" rows="5" placeholder="z. B. 200 g Spaghetti"></textarea>
+            </div>
+
+            <div class="formular-feld">
+                <label for="rezept-zubereitung">Zubereitung (ein Schritt pro Zeile)</label>
+                <textarea id="rezept-zubereitung" name="rezept-zubereitung" rows="6" placeholder="z. B. Wasser salzen und zum Kochen bringen"></textarea>
+            </div>
+
+            <button type="submit" id="speichern-button">Rezept speichern</button>
+        </form>
+    </section>
+</main>
 
   <footer>
     <p>WI_A_Gruppe_9 · DHBW Mosbach</p>
