@@ -17,7 +17,10 @@ function speichereFormular(event) {
 
   rezepte.push(neuesRezept);
   speichereRezepte(rezepte);
+  zeigeRezepte(rezepte);
   rezeptFormular.reset();
 }
 
 rezeptFormular.addEventListener("submit", speichereFormular);
+
+zeigeRezepte(rezepte);
