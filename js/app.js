@@ -21,6 +21,14 @@ function speichereFormular(event) {
   rezeptFormular.reset();
 }
 
+// Entfernt das Rezept mit der übergebenen id und aktualisiert Speicher und Anzeige
+function loescheRezept(id) {
+  rezepte = rezepte.filter(rezept => rezept.id !== id);
+  speichereRezepte(rezepte);
+  zeigeRezepte(rezepte);
+}
+
 rezeptFormular.addEventListener("submit", speichereFormular);
 
 zeigeRezepte(rezepte);
+  
