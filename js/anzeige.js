@@ -41,7 +41,14 @@ function erstelleRezeptKarte(rezept) {
 
 function zeigeRezepte(liste) {
     const rezeptListe = document.getElementById("rezept-liste");
+    const leerHinweis = document.getElementById("leer-hinweis");
     rezeptListe.textContent = "";
+
+    if (liste.length === 0) {
+        leerHinweis.classList.remove("versteckt");
+    } else {
+        leerHinweis.classList.add("versteckt");
+    }
 
     liste.forEach(function (rezept) {
         rezeptListe.appendChild(erstelleRezeptKarte(rezept));
