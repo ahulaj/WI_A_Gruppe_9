@@ -7,15 +7,10 @@ const rezeptFormular = document.getElementById("rezept-formular");
 function speichereFormular(event) {
   event.preventDefault();
 
-  const neuesRezept = {
-    id: Date.now(),
-    name: document.getElementById("rezept-name").value.trim(),
-    kategorie: document.getElementById("rezept-kategorie").value,
-    zutaten: document.getElementById("rezept-zutaten").value,
-    zubereitung: document.getElementById("rezept-zubereitung").value
-  };
+  const daten = leseFormular();
+  daten.id = Date.now();
 
-  rezepte.push(neuesRezept);
+  rezepte.push(daten);
   speichereRezepte(rezepte);
   zeigeRezepte(rezepte);
   rezeptFormular.reset();
@@ -31,4 +26,3 @@ function loescheRezept(id) {
 rezeptFormular.addEventListener("submit", speichereFormular);
 
 zeigeRezepte(rezepte);
-  
