@@ -14,6 +14,7 @@ function erstelleRezeptKarte(rezept) {
 
     karte.appendChild(erstelleElement("h3", rezept.name));
     karte.appendChild(erstelleElement("p", rezept.kategorie, "rezept-kategorie"));
+    karte.appendChild(erstelleElement("p", rezept.dauer + " Min.", "rezept-dauer"));
 
     karte.appendChild(erstelleElement("h4", "Zutaten"));
     const zutatenListe = erstelleElement("ul", "");

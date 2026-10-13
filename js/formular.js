@@ -13,6 +13,7 @@ function leseFormular() {
   return {
     name: document.getElementById("rezept-name").value.trim(),
     kategorie: document.getElementById("rezept-kategorie").value,
+    dauer: Number(document.getElementById("rezept-dauer").value),
     zutaten: textZuListe(document.getElementById("rezept-zutaten").value),
     zubereitung: textZuListe(document.getElementById("rezept-zubereitung").value)
   };
