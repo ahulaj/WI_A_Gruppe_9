@@ -24,3 +24,8 @@ function ladeRezepte() {
     return [];
   }
 }
+
+// Speichert die Liste aller Rezepte im localStorage
+function speichereRezepte(rezepte) {
+  localStorage.setItem(SPEICHER_SCHLUESSEL, JSON.stringify(rezepte));
+}
