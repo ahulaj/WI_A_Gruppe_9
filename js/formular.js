@@ -29,15 +29,24 @@ function zeigeFehler(feldName, text) {
   }
 }
 
-function entferneAlleFehler() {
-  const fehlertexte = document.querySelectorAll(".fehler-text");
-  fehlertexte.forEach(p => p.textContent = "");
-  
-  const felder = document.querySelectorAll("#rezept-formular input, #rezept-formular textarea, #rezept-formular select");
-  felder.forEach(feld => {
+const FEHLER_FELDER = ["name", "dauer", "zutaten", "zubereitung"];
+
+// Entfernt Fehlermeldung und Markierung für genau ein Feld
+function entferneFehler(feldName) {
+  const fehlerAbsatz = document.getElementById("fehler-" + feldName);
+  if (fehlerAbsatz) {
+    fehlerAbsatz.textContent = "";
+  }
+  const feld = document.getElementById("rezept-" + feldName);
+  if (feld) {
     feld.removeAttribute("aria-invalid");
     feld.classList.remove("feld-fehler");
-  });
+  }
+}
+
+// Entfernt die Fehler aller Felder
+function entferneAlleFehler() {
+  FEHLER_FELDER.forEach(feldName => entferneFehler(feldName));
 }
 
 function pruefeFormular(daten) {

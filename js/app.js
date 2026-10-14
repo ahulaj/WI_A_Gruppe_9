@@ -40,4 +40,11 @@ function loescheRezept(id) {
 
 rezeptFormular.addEventListener("submit", speichereFormular);
 
+// Blendet die Fehlermeldung eines Feldes aus, sobald dort getippt wird
+FEHLER_FELDER.forEach(feldName => {
+  document.getElementById("rezept-" + feldName).addEventListener("input", () => {
+    entferneFehler(feldName);
+  });
+});
+
 zeigeRezepte(rezepte);
