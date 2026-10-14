@@ -19,10 +19,13 @@ function leseFormular() {
 
 function zeigeFehler(feldName, text) {
   const fehlerAbsatz = document.getElementById("fehler-" + feldName);
+
   if (fehlerAbsatz) {
     fehlerAbsatz.textContent = text;
   }
+
   const feld = document.getElementById("rezept-" + feldName);
+
   if (feld) {
     feld.setAttribute("aria-invalid", "true");
     feld.classList.add("feld-fehler");
@@ -34,10 +37,13 @@ const FEHLER_FELDER = ["name", "dauer", "zutaten", "zubereitung"];
 // Entfernt Fehlermeldung und Markierung für genau ein Feld
 function entferneFehler(feldName) {
   const fehlerAbsatz = document.getElementById("fehler-" + feldName);
+
   if (fehlerAbsatz) {
     fehlerAbsatz.textContent = "";
   }
+
   const feld = document.getElementById("rezept-" + feldName);
+
   if (feld) {
     feld.removeAttribute("aria-invalid");
     feld.classList.remove("feld-fehler");
@@ -64,8 +70,15 @@ function pruefeFormular(daten) {
   if (!daten.dauer) {
     zeigeFehler("dauer", "Bitte gib eine Zubereitungszeit ein.");
     istGueltig = false;
-  } else if (!Number.isInteger(daten.dauer) || daten.dauer < 1 || daten.dauer > 600) {
-    zeigeFehler("dauer", "Bitte gib eine Zubereitungszeit zwischen 1 und 600 Minuten ein.");
+  } else if (
+    !Number.isInteger(daten.dauer) ||
+    daten.dauer < 1 ||
+    daten.dauer > 600
+  ) {
+    zeigeFehler(
+      "dauer",
+      "Bitte gib eine Zubereitungszeit zwischen 1 und 600 Minuten ein."
+    );
     istGueltig = false;
   }
 
@@ -75,7 +88,10 @@ function pruefeFormular(daten) {
   }
 
   if (daten.zubereitung.length === 0) {
-    zeigeFehler("zubereitung", "Bitte gib mindestens einen Zubereitungsschritt ein.");
+    zeigeFehler(
+      "zubereitung",
+      "Bitte gib mindestens einen Zubereitungsschritt ein."
+    );
     istGueltig = false;
   }
 
@@ -87,5 +103,6 @@ function fuelleFormular(rezept) {
   document.getElementById("rezept-kategorie").value = rezept.kategorie;
   document.getElementById("rezept-dauer").value = rezept.dauer;
   document.getElementById("rezept-zutaten").value = rezept.zutaten.join("\n");
-  document.getElementById("rezept-zubereitung").value = rezept.zubereitung.join("\n");
+  document.getElementById("rezept-zubereitung").value =
+    rezept.zubereitung.join("\n");
 }
