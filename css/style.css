@@ -38,3 +38,13 @@ textarea {
   font-size: 0.875rem;
   margin: 0;
 }
+
+.feld-fehler {
+  border-color: var(--farbe-fehler);
+}
+
+.fehler-text {
+  color: var(--farbe-fehler);
+  font-size: 0.875rem;
+  margin: 0;
+}

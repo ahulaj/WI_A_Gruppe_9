@@ -1,14 +1,12 @@
 // WI_A_Gruppe_9
 
-// Teilt einen Text in Zeilen, entfernt Leerzeichen am Rand und wirft leere Zeilen raus
 function textZuListe(text) {
   return text
     .split("\n")
     .map(zeile => zeile.trim())
-    .filter(zeile => zeile !== "");
+    .filter(zeile => zeile.length > 0);
 }
 
-// Liest alle Formularfelder aus und gibt die Daten als Objekt zurück
 function leseFormular() {
   return {
     name: document.getElementById("rezept-name").value.trim(),
@@ -19,30 +17,46 @@ function leseFormular() {
   };
 }
 
-// Schreibt eine Fehlermeldung unter das passende Feld
 function zeigeFehler(feldName, text) {
-  document.getElementById("fehler-" + feldName).textContent = text;
+  const fehlerAbsatz = document.getElementById("fehler-" + feldName);
+  if (fehlerAbsatz) {
+    fehlerAbsatz.textContent = text;
+  }
+  const feld = document.getElementById("rezept-" + feldName);
+  if (feld) {
+    feld.setAttribute("aria-invalid", "true");
+    feld.classList.add("feld-fehler");
+  }
 }
 
-// Leert alle Fehlermeldungen im Formular
 function entferneAlleFehler() {
-  document.querySelectorAll(".fehler-text").forEach(fehler => {
-    fehler.textContent = "";
+  const fehlertexte = document.querySelectorAll(".fehler-text");
+  fehlertexte.forEach(p => p.textContent = "");
+  
+  const felder = document.querySelectorAll("#rezept-formular input, #rezept-formular textarea, #rezept-formular select");
+  felder.forEach(feld => {
+    feld.removeAttribute("aria-invalid");
+    feld.classList.remove("feld-fehler");
   });
 }
 
-// Prüft die Pflichtfelder und gibt zurück, ob das Formular gültig ist
 function pruefeFormular(daten) {
   entferneAlleFehler();
   let istGueltig = true;
 
-  if (daten.name === "") {
+  if (!daten.name) {
     zeigeFehler("name", "Bitte gib einen Namen ein.");
+    istGueltig = false;
+  } else if (daten.name.length > 60) {
+    zeigeFehler("name", "Der Name darf höchstens 60 Zeichen lang sein.");
     istGueltig = false;
   }
 
-  if (daten.dauer === 0) {
+  if (!daten.dauer) {
     zeigeFehler("dauer", "Bitte gib eine Zubereitungszeit ein.");
+    istGueltig = false;
+  } else if (!Number.isInteger(daten.dauer) || daten.dauer < 1 || daten.dauer > 600) {
+    zeigeFehler("dauer", "Bitte gib eine Zubereitungszeit zwischen 1 und 600 Minuten ein.");
     istGueltig = false;
   }
 
@@ -57,4 +71,12 @@ function pruefeFormular(daten) {
   }
 
   return istGueltig;
+}
+
+function fuelleFormular(rezept) {
+  document.getElementById("rezept-name").value = rezept.name;
+  document.getElementById("rezept-kategorie").value = rezept.kategorie;
+  document.getElementById("rezept-dauer").value = rezept.dauer;
+  document.getElementById("rezept-zutaten").value = rezept.zutaten.join("\n");
+  document.getElementById("rezept-zubereitung").value = rezept.zubereitung.join("\n");
 }
