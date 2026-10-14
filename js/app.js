@@ -19,8 +19,20 @@ function speichereFormular(event) {
   rezeptFormular.reset();
 }
 
-// Entfernt das Rezept mit der übergebenen id und aktualisiert Speicher und Anzeige
+// Fragt vor dem Löschen nach, entfernt dann das Rezept mit der übergebenen id und aktualisiert Speicher und Anzeige
 function loescheRezept(id) {
+  const rezept = rezepte.find(rezept => rezept.id === id);
+
+  if (!rezept) {
+    return;
+  }
+
+  const bestaetigt = confirm("Möchtest du das Rezept „" + rezept.name + "“ wirklich löschen?");
+
+  if (!bestaetigt) {
+    return;
+  }
+
   rezepte = rezepte.filter(rezept => rezept.id !== id);
   speichereRezepte(rezepte);
   zeigeRezepte(rezepte);
