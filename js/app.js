@@ -8,6 +8,9 @@ function speichereFormular(event) {
   event.preventDefault();
 
   const daten = leseFormular();
+  if (!pruefeFormular(daten)) {
+    return;
+  }
   daten.id = Date.now();
 
   rezepte.push(daten);

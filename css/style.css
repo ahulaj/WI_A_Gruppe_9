@@ -32,3 +32,9 @@ textarea {
 .versteckt {
   display: none;
 }
+
+.fehler-text {
+  color: #b42318;
+  font-size: 0.875rem;
+  margin: 0;
+}
