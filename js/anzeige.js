@@ -1,5 +1,18 @@
 // WI_A_Gruppe_9
 
+// Lesbare Namen für die internen Kategorie-Werte
+const KATEGORIE_TEXTE = {
+  fruehstueck: "Frühstück",
+  hauptgericht: "Hauptgericht",
+  dessert: "Dessert",
+  snack: "Snack"
+};
+
+// Gibt den lesbaren Text zur Kategorie zurück, bei unbekanntem Wert "Sonstiges"
+function kategorieText(wert) {
+  return KATEGORIE_TEXTE[wert] || "Sonstiges";
+}
+
 function erstelleElement(tagName, text, klassenName) {
   const element = document.createElement(tagName);
   element.textContent = text;
@@ -16,7 +29,7 @@ function erstelleRezeptKarte(rezept) {
 
   karte.appendChild(erstelleElement("h3", rezept.name));
   karte.appendChild(
-    erstelleElement("p", rezept.kategorie, "rezept-kategorie")
+    erstelleElement("p", kategorieText(rezept.kategorie), "rezept-kategorie")
   );
   karte.appendChild(
     erstelleElement("p", rezept.dauer + " Min.", "rezept-dauer")
