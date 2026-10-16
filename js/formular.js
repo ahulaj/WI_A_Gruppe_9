@@ -106,3 +106,13 @@ function fuelleFormular(rezept) {
   document.getElementById("rezept-zubereitung").value =
     rezept.zubereitung.join("\n");
 }
+
+// Leert das Formular, entfernt alle Fehler und stellt Überschrift und Buttons auf "Neues Rezept" zurück
+function setzeFormularZurueck() {
+  document.getElementById("rezept-formular").reset();
+  entferneAlleFehler();
+
+  document.getElementById("formular-titel").textContent = "Neues Rezept";
+  document.getElementById("speichern-button").textContent = "Rezept speichern";
+  document.getElementById("abbrechen-button").classList.add("versteckt");
+}
