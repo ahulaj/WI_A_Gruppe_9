@@ -60,6 +60,12 @@
 
     <section id="ansicht-meine-rezepte">
                 <h2>Meine Rezepte</h2>
+        <div class="filter-leiste">
+            <div class="formular-feld">
+                <label for="suche-eingabe">Rezepte durchsuchen</label>
+                <input type="search" id="suche-eingabe" placeholder="z. B. Spaghetti">
+            </div>
+        </div>
         <p id="leer-hinweis" class="hinweis versteckt">Noch keine Rezepte vorhanden. Lege jetzt dein erstes Rezept an.</p>
         <div id="rezept-liste" class="rezept-liste"></div>
     </section>
@@ -73,6 +79,7 @@
 <script src="js/speicher.js"></script>
 <script src="js/anzeige.js"></script>
 <script src="js/formular.js"></script>
+<script src="js/filter.js"></script>
 <script src="js/app.js"></script>
 
 </body>

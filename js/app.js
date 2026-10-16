@@ -4,6 +4,7 @@ let rezepte = ladeRezepte();
 let bearbeitetesRezeptId = null;
 
 const rezeptFormular = document.getElementById("rezept-formular");
+const sucheEingabe = document.getElementById("suche-eingabe");
 
 // Liest das Formular aus, speichert ein neues oder bearbeitetes Rezept und setzt das Formular zurück
 function speichereFormular(event) {
@@ -27,7 +28,7 @@ function speichereFormular(event) {
   }
 
   speichereRezepte(rezepte);
-  zeigeRezepte(rezepte);
+  aktualisiereAnzeige();
   beendeBearbeitung();
 }
 
@@ -71,11 +72,18 @@ function loescheRezept(id) {
 
   rezepte = rezepte.filter(rezept => rezept.id !== id);
   speichereRezepte(rezepte);
-  zeigeRezepte(rezepte);
+  aktualisiereAnzeige();
+}
+
+// Filtert die Rezepte nach dem Suchbegriff und zeigt das Ergebnis an
+function aktualisiereAnzeige() {
+  const gefilterteRezepte = filtereRezepte(rezepte, sucheEingabe.value);
+  zeigeRezepte(gefilterteRezepte);
 }
 
 rezeptFormular.addEventListener("submit", speichereFormular);
 document.getElementById("abbrechen-button").addEventListener("click", beendeBearbeitung);
+sucheEingabe.addEventListener("input", aktualisiereAnzeige);
 
 // Blendet die Fehlermeldung eines Feldes aus, sobald dort getippt wird
 FEHLER_FELDER.forEach(feldName => {
@@ -84,4 +92,4 @@ FEHLER_FELDER.forEach(feldName => {
   });
 });
 
-zeigeRezepte(rezepte);
+aktualisiereAnzeige();
