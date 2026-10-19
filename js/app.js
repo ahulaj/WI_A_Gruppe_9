@@ -93,6 +93,10 @@ function aktualisiereAnzeige() {
 
 rezeptFormular.addEventListener("submit", speichereFormular);
 document.getElementById("abbrechen-button").addEventListener("click", beendeBearbeitung);
+document.getElementById("dialog-schliessen").addEventListener("click", function () {
+  document.getElementById("rezept-dialog").close();
+});
+
 sucheEingabe.addEventListener("input", aktualisiereAnzeige);
 kategorieFilter.addEventListener("change", aktualisiereAnzeige);
 

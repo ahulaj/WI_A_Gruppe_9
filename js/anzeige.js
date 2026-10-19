@@ -55,6 +55,15 @@ function erstelleRezeptKarte(rezept) {
 
   karte.appendChild(schritteListe);
 
+    const anzeigenButton = erstelleElement("button", "Anzeigen");
+  anzeigenButton.type = "button";
+
+  anzeigenButton.addEventListener("click", function () {
+    zeigeRezeptDetails(rezept);
+  });
+
+  karte.appendChild(anzeigenButton);
+
   const bearbeitenButton = erstelleElement("button", "Bearbeiten");
   bearbeitenButton.type = "button";
 
@@ -95,6 +104,7 @@ function zeigeRezepte(liste, hinweisText) {
     rezeptListe.appendChild(erstelleRezeptKarte(rezept));
   });
 }
+
 // Zeigt über der Liste die Anzahl der Rezepte an
 function zeigeTrefferAnzahl(anzahlGefunden, anzahlGesamt) {
   const trefferAnzahl = document.getElementById("treffer-anzahl");
@@ -108,4 +118,28 @@ function zeigeTrefferAnzahl(anzahlGefunden, anzahlGesamt) {
   } else {
     trefferAnzahl.textContent = anzahlGesamt + " Rezepte";
   }
+}
+
+// Füllt den Dialog mit allen Infos des Rezepts und öffnet ihn
+function zeigeRezeptDetails(rezept) {
+  const dialog = document.getElementById("rezept-dialog");
+  const zutatenListe = document.getElementById("dialog-zutaten");
+  const schritteListe = document.getElementById("dialog-schritte");
+
+  document.getElementById("dialog-titel").textContent = rezept.name;
+  document.getElementById("dialog-info").textContent =
+    kategorieText(rezept.kategorie) + " · " + rezept.dauer + " Min.";
+
+  zutatenListe.textContent = "";
+  schritteListe.textContent = "";
+
+  rezept.zutaten.forEach(function (zutat) {
+    zutatenListe.appendChild(erstelleElement("li", zutat));
+  });
+
+  rezept.zubereitung.forEach(function (schritt) {
+    schritteListe.appendChild(erstelleElement("li", schritt));
+  });
+
+  dialog.showModal();
 }
