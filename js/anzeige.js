@@ -24,6 +24,7 @@ function erstelleElement(tagName, text, klassenName) {
   return element;
 }
 
+// Baut eine kompakte Karte mit Vorschau. Alle Details stehen im Dialog
 function erstelleRezeptKarte(rezept) {
   const karte = erstelleElement("article", "", "rezept-karte");
 
@@ -34,35 +35,20 @@ function erstelleRezeptKarte(rezept) {
   karte.appendChild(
     erstelleElement("p", rezept.dauer + " Min.", "rezept-dauer")
   );
+  karte.appendChild(
+    erstelleElement("p", "Zutaten: " + rezept.zutaten.join(", "), "rezept-vorschau")
+  );
 
-  karte.appendChild(erstelleElement("h4", "Zutaten"));
+  const kartenAktionen = erstelleElement("div", "", "karten-aktionen");
 
-  const zutatenListe = erstelleElement("ul", "");
-
-  rezept.zutaten.forEach(function (zutat) {
-    zutatenListe.appendChild(erstelleElement("li", zutat));
-  });
-
-  karte.appendChild(zutatenListe);
-
-  karte.appendChild(erstelleElement("h4", "Zubereitung"));
-
-  const schritteListe = erstelleElement("ol", "");
-
-  rezept.zubereitung.forEach(function (schritt) {
-    schritteListe.appendChild(erstelleElement("li", schritt));
-  });
-
-  karte.appendChild(schritteListe);
-
-    const anzeigenButton = erstelleElement("button", "Anzeigen");
+  const anzeigenButton = erstelleElement("button", "Anzeigen");
   anzeigenButton.type = "button";
 
   anzeigenButton.addEventListener("click", function () {
     zeigeRezeptDetails(rezept);
   });
 
-  karte.appendChild(anzeigenButton);
+  kartenAktionen.appendChild(anzeigenButton);
 
   const bearbeitenButton = erstelleElement("button", "Bearbeiten");
   bearbeitenButton.type = "button";
@@ -71,7 +57,7 @@ function erstelleRezeptKarte(rezept) {
     starteBearbeitung(rezept.id);
   });
 
-  karte.appendChild(bearbeitenButton);
+  kartenAktionen.appendChild(bearbeitenButton);
 
   const loeschenButton = erstelleElement("button", "Löschen");
   loeschenButton.type = "button";
@@ -80,7 +66,9 @@ function erstelleRezeptKarte(rezept) {
     loescheRezept(rezept.id);
   });
 
-  karte.appendChild(loeschenButton);
+  kartenAktionen.appendChild(loeschenButton);
+
+  karte.appendChild(kartenAktionen);
 
   return karte;
 }
