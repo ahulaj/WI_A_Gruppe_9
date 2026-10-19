@@ -95,3 +95,17 @@ function zeigeRezepte(liste, hinweisText) {
     rezeptListe.appendChild(erstelleRezeptKarte(rezept));
   });
 }
+// Zeigt über der Liste die Anzahl der Rezepte an
+function zeigeTrefferAnzahl(anzahlGefunden, anzahlGesamt) {
+  const trefferAnzahl = document.getElementById("treffer-anzahl");
+
+  if (anzahlGesamt === 0) {
+    trefferAnzahl.textContent = "";
+  } else if (anzahlGefunden < anzahlGesamt) {
+    trefferAnzahl.textContent = anzahlGefunden + " von " + anzahlGesamt + " Rezepten";
+  } else if (anzahlGesamt === 1) {
+    trefferAnzahl.textContent = "1 Rezept";
+  } else {
+    trefferAnzahl.textContent = anzahlGesamt + " Rezepte";
+  }
+}

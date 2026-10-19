@@ -88,6 +88,7 @@ function aktualisiereAnzeige() {
   }
 
   zeigeRezepte(gefilterteRezepte, hinweisText);
+  zeigeTrefferAnzahl(gefilterteRezepte.length, rezepte.length);
 }
 
 rezeptFormular.addEventListener("submit", speichereFormular);
