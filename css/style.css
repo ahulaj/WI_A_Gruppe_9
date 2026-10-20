@@ -1,5 +1,29 @@
 /* WI_A_Gruppe_9 */
 
+/* Design-Variablen: alle Farben, Abstände und Rundungen stehen nur hier */
+:root {
+  --farbe-primaer: #2f6f4f;
+  --farbe-primaer-dunkel: #24573e;
+  --farbe-primaer-hell: #e7f1eb;
+  --farbe-akzent: #d9822b;
+  --farbe-hintergrund: #f5f4ef;
+  --farbe-flaeche: #ffffff;
+  --farbe-text: #1f2a24;
+  --farbe-text-hell: #5a6560;
+  --farbe-rand: #dde2dd;
+  --farbe-fehler: #b42318;
+
+  --abstand-xs: 0.25rem;
+  --abstand-klein: 0.5rem;
+  --abstand-mittel: 1rem;
+  --abstand-gross: 1.5rem;
+  --abstand-xl: 2.5rem;
+
+  --radius: 14px;
+  --radius-klein: 8px;
+  --schatten: 0 2px 10px rgba(31, 42, 36, 0.08);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,43 +32,65 @@ body {
   font-family: system-ui, sans-serif;
   margin: 0;
   line-height: 1.5;
+  background-color: var(--farbe-hintergrund);
+  color: var(--farbe-text);
+}
+
+/* Einheitliche Schriftgrößen für alle Überschriften */
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--abstand-klein);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+h4 {
+  font-size: 1rem;
 }
 
 main {
   max-width: 900px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: var(--abstand-mittel);
 }
 
 .formular-feld {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  margin-bottom: 1rem;
+  gap: var(--abstand-xs);
+  margin-bottom: var(--abstand-mittel);
 }
 
 input,
 select,
 textarea {
   font: inherit;
-  padding: 0.5rem;
+  padding: var(--abstand-klein);
 }
+
 .versteckt {
   display: none;
-}
-
-.fehler-text {
-  color: #b42318;
-  font-size: 0.875rem;
-  margin: 0;
-}
-
-.feld-fehler {
-  border-color: var(--farbe-fehler);
 }
 
 .fehler-text {
   color: var(--farbe-fehler);
   font-size: 0.875rem;
   margin: 0;
+}
+
+.feld-fehler {
+  border-color: var(--farbe-fehler);
 }
