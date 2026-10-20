@@ -8,12 +8,19 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
+  <header class="sidebar">
     <h1>Rezeptverwalter</h1>
+    <nav aria-label="Hauptnavigation">
+      <ul class="nav-liste">
+        <li><button type="button" class="nav-button aktiv" data-ansicht="neues-rezept" aria-current="page">Neues Rezept</button></li>
+        <li><button type="button" class="nav-button" data-ansicht="meine-rezepte">Meine Rezepte</button></li>
+        <li><button type="button" class="nav-button" data-ansicht="ueber-uns">Über uns</button></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <section id="ansicht-neues-rezept">
+    <section id="ansicht-neues-rezept" class="ansicht aktiv">
         <div class="karte">
             <h2 id="formular-titel">Neues Rezept</h2>
 
@@ -62,7 +69,7 @@
         </div>
     </section>
 
-    <section id="ansicht-meine-rezepte">
+    <section id="ansicht-meine-rezepte" class="ansicht">
                 <h2>Meine Rezepte</h2>
         <div class="filter-leiste">
             <div class="formular-feld">
@@ -85,6 +92,10 @@
         <div id="rezept-liste" class="rezept-liste"></div>
     </section>
    
+<section id="ansicht-ueber-uns" class="ansicht">
+        <h2>Über uns</h2>
+        <p>Der Rezeptverwalter ist ein Projekt der Gruppe WI_A_Gruppe_9 an der DHBW Mosbach.</p>
+    </section>
 </main>
   <dialog id="rezept-dialog">
     <h2 id="dialog-titel"></h2>
@@ -107,6 +118,7 @@
 <script src="js/anzeige.js"></script>
 <script src="js/formular.js"></script>
 <script src="js/filter.js"></script>
+<script src="js/navigation.js"></script>
 <script src="js/app.js"></script>
 
 </body>

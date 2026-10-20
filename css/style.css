@@ -187,3 +187,12 @@ button:focus-visible {
   color: var(--farbe-flaeche);
   border-color: var(--farbe-fehler);
 }
+
+/* Navigation: nur die aktive Ansicht ist sichtbar */
+.ansicht {
+  display: none;
+}
+
+.ansicht.aktiv {
+  display: block;
+}

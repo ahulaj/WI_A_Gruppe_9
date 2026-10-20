@@ -102,6 +102,10 @@ document.getElementById("dialog-schliessen").addEventListener("click", function 
   document.getElementById("rezept-dialog").close();
 });
 
+// Wechselt beim Klick auf einen Navigationsbutton die Ansicht
+document.querySelectorAll(".nav-button").forEach(button => {
+  button.addEventListener("click", () => wechsleAnsicht(button.dataset.ansicht));
+});
 sucheEingabe.addEventListener("input", aktualisiereAnzeige);
 kategorieFilter.addEventListener("change", aktualisiereAnzeige);
 
