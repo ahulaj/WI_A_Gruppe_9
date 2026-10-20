@@ -8,10 +8,12 @@ function textZuListe(text) {
 }
 
 function leseFormular() {
+  const dauerText = document.getElementById("rezept-dauer").value;
+
   return {
     name: document.getElementById("rezept-name").value.trim(),
     kategorie: document.getElementById("rezept-kategorie").value,
-    dauer: Number(document.getElementById("rezept-dauer").value),
+    dauer: dauerText === "" ? null : Number(dauerText),
     zutaten: textZuListe(document.getElementById("rezept-zutaten").value),
     zubereitung: textZuListe(document.getElementById("rezept-zubereitung").value)
   };
@@ -67,7 +69,7 @@ function pruefeFormular(daten) {
     istGueltig = false;
   }
 
-  if (!daten.dauer) {
+  if (daten.dauer === null) {
     zeigeFehler("dauer", "Bitte gib eine Zubereitungszeit ein.");
     istGueltig = false;
   } else if (

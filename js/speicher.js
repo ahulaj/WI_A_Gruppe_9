@@ -18,7 +18,8 @@ function ladeRezepte() {
       return [];
     }
 
-    return daten;
+    // Unvollständige Einträge (z. B. alte Testdaten) überspringen
+    return daten.filter(rezept => Array.isArray(rezept.zutaten) && Array.isArray(rezept.zubereitung));
   } catch (fehler) {
     console.warn("Gespeicherte Rezepte konnten nicht gelesen werden.");
     return [];

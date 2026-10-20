@@ -73,6 +73,11 @@ function loescheRezept(id) {
 
   rezepte = rezepte.filter(rezept => rezept.id !== id);
   speichereRezepte(rezepte);
+
+  if (id === bearbeitetesRezeptId) {
+    beendeBearbeitung();
+  }
+
   aktualisiereAnzeige();
 }
 
