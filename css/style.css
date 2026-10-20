@@ -67,6 +67,14 @@ main {
   padding: var(--abstand-mittel);
 }
 
+/* Weiße Fläche mit Rundung und Schatten, z. B. für das Formular */
+.karte {
+  background-color: var(--farbe-flaeche);
+  border-radius: var(--radius);
+  box-shadow: var(--schatten);
+  padding: var(--abstand-gross);
+}
+
 .formular-feld {
   display: flex;
   flex-direction: column;
@@ -74,11 +82,48 @@ main {
   margin-bottom: var(--abstand-mittel);
 }
 
+label {
+  font-weight: 600;
+}
+
+/* Kategorie und Zubereitungszeit nebeneinander */
+.formular-raster {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--abstand-mittel);
+}
+
+/* Speichern und Abbrechen nebeneinander */
+.formular-aktionen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--abstand-klein);
+}
+
+/* Eingabefelder: einheitlicher Rahmen und sichtbarer Fokus */
 input,
 select,
 textarea {
+  width: 100%;
   font: inherit;
   padding: var(--abstand-klein);
+  color: var(--farbe-text);
+  background-color: var(--farbe-flaeche);
+  border: 1px solid var(--farbe-rand);
+  border-radius: var(--radius-klein);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--farbe-primaer);
+  box-shadow: 0 0 0 3px var(--farbe-primaer-hell);
+}
+
+/* Fehlerhafte Felder bleiben auch beim Tippen rot markiert */
+.feld-fehler:focus {
+  border-color: var(--farbe-fehler);
 }
 
 .versteckt {

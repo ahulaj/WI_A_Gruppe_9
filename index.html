@@ -14,48 +14,52 @@
 
   <main>
     <section id="ansicht-neues-rezept">
-        <h2 id="formular-titel">Neues Rezept</h2>
+        <div class="karte">
+            <h2 id="formular-titel">Neues Rezept</h2>
 
-        <form id="rezept-formular" novalidate>
-            <div class="formular-feld">
-                <label for="rezept-name">Name des Rezepts</label>
-                <input type="text" id="rezept-name" name="rezept-name" placeholder="z. B. Spaghetti Bolognese">
-                <p class="fehler-text" id="fehler-name"></p>
-            </div>
+            <form id="rezept-formular" novalidate>
+                <div class="formular-feld">
+                    <label for="rezept-name">Name des Rezepts</label>
+                    <input type="text" id="rezept-name" name="rezept-name" placeholder="z. B. Spaghetti Bolognese">
+                    <p class="fehler-text" id="fehler-name"></p>
+                </div>
 
-            <div class="formular-feld">
-                <label for="rezept-kategorie">Kategorie</label>
-                <select id="rezept-kategorie" name="rezept-kategorie">
-                    <option value="fruehstueck">Frühstück</option>
-                    <option value="hauptgericht" selected>Hauptgericht</option>
-                    <option value="dessert">Dessert</option>
-                    <option value="snack">Snack</option>
-                </select>
-            </div>
+                <div class="formular-raster">
+                    <div class="formular-feld">
+                        <label for="rezept-kategorie">Kategorie</label>
+                        <select id="rezept-kategorie" name="rezept-kategorie">
+                            <option value="fruehstueck">Frühstück</option>
+                            <option value="hauptgericht" selected>Hauptgericht</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="snack">Snack</option>
+                        </select>
+                    </div>
 
-            <div class="formular-feld">
-                <label for="rezept-dauer">Zubereitungszeit (Minuten)</label>
-                <input type="number" id="rezept-dauer" name="rezept-dauer" min="1" max="600" step="1" placeholder="z. B. 30">
-                <p class="fehler-text" id="fehler-dauer"></p>
-            </div>
+                    <div class="formular-feld">
+                        <label for="rezept-dauer">Zubereitungszeit (Minuten)</label>
+                        <input type="number" id="rezept-dauer" name="rezept-dauer" min="1" max="600" step="1" placeholder="z. B. 30">
+                        <p class="fehler-text" id="fehler-dauer"></p>
+                    </div>
+                </div>
 
-            <div class="formular-feld">
-                <label for="rezept-zutaten">Zutaten (eine pro Zeile)</label>
-                <textarea id="rezept-zutaten" name="rezept-zutaten" rows="5" placeholder="z. B. 200 g Spaghetti"></textarea>
-                <p class="fehler-text" id="fehler-zutaten"></p>
-            </div>
+                <div class="formular-feld">
+                    <label for="rezept-zutaten">Zutaten (eine pro Zeile)</label>
+                    <textarea id="rezept-zutaten" name="rezept-zutaten" rows="5" placeholder="z. B. 200 g Spaghetti"></textarea>
+                    <p class="fehler-text" id="fehler-zutaten"></p>
+                </div>
 
-            <div class="formular-feld">
-                <label for="rezept-zubereitung">Zubereitung (ein Schritt pro Zeile)</label>
-                <textarea id="rezept-zubereitung" name="rezept-zubereitung" rows="6" placeholder="z. B. Wasser salzen und zum Kochen bringen"></textarea>
-                <p class="fehler-text" id="fehler-zubereitung"></p>
-            </div>
+                <div class="formular-feld">
+                    <label for="rezept-zubereitung">Zubereitung (ein Schritt pro Zeile)</label>
+                    <textarea id="rezept-zubereitung" name="rezept-zubereitung" rows="6" placeholder="z. B. Wasser salzen und zum Kochen bringen"></textarea>
+                    <p class="fehler-text" id="fehler-zubereitung"></p>
+                </div>
 
-            <div class="formular-aktionen">
-                <button type="submit" id="speichern-button">Rezept speichern</button>
-                <button type="button" id="abbrechen-button" class="button-sekundaer versteckt">Abbrechen</button>
-            </div>
-        </form>
+                <div class="formular-aktionen">
+                    <button type="submit" id="speichern-button">Rezept speichern</button>
+                    <button type="button" id="abbrechen-button" class="button-sekundaer versteckt">Abbrechen</button>
+                </div>
+            </form>
+        </div>
     </section>
 
     <section id="ansicht-meine-rezepte">
