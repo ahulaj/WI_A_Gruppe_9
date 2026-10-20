@@ -41,7 +41,7 @@ function erstelleRezeptKarte(rezept) {
 
   const kartenAktionen = erstelleElement("div", "", "karten-aktionen");
 
-  const anzeigenButton = erstelleElement("button", "Anzeigen");
+  const anzeigenButton = erstelleElement("button", "Anzeigen", "button-sekundaer");
   anzeigenButton.type = "button";
 
   anzeigenButton.addEventListener("click", function () {
@@ -50,7 +50,7 @@ function erstelleRezeptKarte(rezept) {
 
   kartenAktionen.appendChild(anzeigenButton);
 
-  const bearbeitenButton = erstelleElement("button", "Bearbeiten");
+  const bearbeitenButton = erstelleElement("button", "Bearbeiten", "button-sekundaer");
   bearbeitenButton.type = "button";
 
   bearbeitenButton.addEventListener("click", function () {
@@ -59,7 +59,7 @@ function erstelleRezeptKarte(rezept) {
 
   kartenAktionen.appendChild(bearbeitenButton);
 
-  const loeschenButton = erstelleElement("button", "Löschen");
+  const loeschenButton = erstelleElement("button", "Löschen", "button-gefahr");
   loeschenButton.type = "button";
 
   loeschenButton.addEventListener("click", function () {

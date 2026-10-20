@@ -94,3 +94,51 @@ textarea {
 .feld-fehler {
   border-color: var(--farbe-fehler);
 }
+
+/* Buttons: Grundstil (primär) */
+button {
+  background-color: var(--farbe-primaer);
+  color: var(--farbe-flaeche);
+  border: 2px solid var(--farbe-primaer);
+  border-radius: var(--radius-klein);
+  padding: var(--abstand-klein) var(--abstand-mittel);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--farbe-primaer-dunkel);
+  border-color: var(--farbe-primaer-dunkel);
+}
+
+/* Sichtbarer Fokusrahmen beim Bedienen mit der Tab-Taste */
+button:focus-visible {
+  outline: 3px solid var(--farbe-primaer-dunkel);
+  outline-offset: 2px;
+}
+
+/* Buttons: sekundär (Anzeigen, Bearbeiten, Abbrechen, Schließen) */
+.button-sekundaer {
+  background-color: var(--farbe-flaeche);
+  color: var(--farbe-primaer);
+  border-color: var(--farbe-primaer);
+}
+
+.button-sekundaer:hover {
+  background-color: var(--farbe-primaer-hell);
+  border-color: var(--farbe-primaer);
+}
+
+/* Buttons: Gefahr (Löschen) */
+.button-gefahr {
+  background-color: transparent;
+  color: var(--farbe-fehler);
+  border-color: var(--farbe-fehler);
+}
+
+.button-gefahr:hover {
+  background-color: var(--farbe-fehler);
+  color: var(--farbe-flaeche);
+  border-color: var(--farbe-fehler);
+}
