@@ -307,6 +307,32 @@ button:focus-visible {
   margin: 0;
 }
 
+/* Über uns: Teamkarten im Raster */
+.team-raster {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--abstand-mittel);
+}
+
+.team-karte {
+  border: 1px solid var(--farbe-rand);
+  border-radius: var(--radius);
+  padding: var(--abstand-mittel);
+}
+
+.team-initialen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--farbe-primaer-hell);
+  color: var(--farbe-primaer);
+  font-weight: 700;
+  margin-bottom: var(--abstand-klein);
+}
+
 /* Mittlere Bildschirme: 2 Spalten */
 @media (max-width: 1100px) {
   .rezept-liste {
