@@ -31,9 +31,10 @@ function speichereFormular(event) {
   speichereRezepte(rezepte);
   aktualisiereAnzeige();
   beendeBearbeitung();
+  wechsleAnsicht("meine-rezepte");
 }
 
-// Startet die Bearbeitung eines vorhandenen Rezepts
+// Startet die Bearbeitung eines vorhandenen Rezepts und wechselt zum Formular
 function starteBearbeitung(id) {
   const rezept = rezepte.find(rezept => rezept.id === id);
 
@@ -48,7 +49,8 @@ function starteBearbeitung(id) {
   document.getElementById("speichern-button").textContent = "Änderungen speichern";
   document.getElementById("abbrechen-button").classList.remove("versteckt");
 
-  rezeptFormular.scrollIntoView({ behavior: "smooth" });
+  wechsleAnsicht("neues-rezept");
+  window.scrollTo(0, 0);
 }
 
 // Beendet den Bearbeitungsmodus und setzt das Formular zurück
@@ -87,7 +89,7 @@ function aktualisiereAnzeige() {
 
   let hinweisText;
   if (rezepte.length === 0) {
-    hinweisText = "Noch keine Rezepte vorhanden. Lege jetzt dein erstes Rezept an.";
+    hinweisText = "Noch keine Rezepte vorhanden. Lege dein erstes Rezept unter ‚Neues Rezept‘ an.";
   } else {
     hinweisText = "Keine passenden Rezepte gefunden. Probiere einen anderen Suchbegriff oder eine andere Kategorie.";
   }
@@ -97,7 +99,11 @@ function aktualisiereAnzeige() {
 }
 
 rezeptFormular.addEventListener("submit", speichereFormular);
-document.getElementById("abbrechen-button").addEventListener("click", beendeBearbeitung);
+// Bricht die Bearbeitung ab und kehrt zur Rezeptliste zurück
+document.getElementById("abbrechen-button").addEventListener("click", () => {
+  beendeBearbeitung();
+  wechsleAnsicht("meine-rezepte");
+});
 document.getElementById("dialog-schliessen").addEventListener("click", function () {
   document.getElementById("rezept-dialog").close();
 });
