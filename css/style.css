@@ -346,3 +346,56 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+/* Filterleiste: Suche und Kategorie nebeneinander, schmal untereinander */
+.filter-leiste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--abstand-mittel);
+  align-items: flex-end;
+}
+
+/* Suchfeld wächst mit, Kategorie bleibt schmaler */
+.filter-leiste .formular-feld:first-child {
+  flex: 1 1 260px;
+}
+
+.filter-leiste .formular-feld:last-child {
+  flex: 0 1 220px;
+}
+
+.filter-leiste .formular-feld {
+  margin-bottom: 0;
+}
+
+/* Trefferanzahl über der Liste */
+#treffer-anzahl {
+  color: var(--farbe-text-hell);
+  margin: var(--abstand-mittel) 0;
+}
+
+/* Detail-Dialog */
+#rezept-dialog {
+  width: min(640px, calc(100% - 2rem));
+  max-height: 85vh;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--abstand-xl);
+  box-shadow: var(--schatten);
+}
+
+/* Abgedunkelter Hintergrund hinter dem Dialog */
+#rezept-dialog::backdrop {
+  background: rgba(20, 30, 25, 0.55);
+}
+
+/* Listen im Dialog mit Einzug */
+#rezept-dialog ul,
+#rezept-dialog ol {
+  padding-left: var(--abstand-gross);
+  margin: 0 0 var(--abstand-mittel);
+}
+
+/* Schließen-Button mit Abstand nach oben */
+#dialog-schliessen {
+  margin-top: var(--abstand-mittel);
+}
