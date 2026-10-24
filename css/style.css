@@ -435,3 +435,71 @@ button:focus-visible {
 #dialog-schliessen {
   margin-top: var(--abstand-mittel);
 }
+
+/* Handy und Tablet: Navigation oben als Zeile, alles einspaltig */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    flex: none;
+    gap: var(--abstand-klein);
+    padding: var(--abstand-mittel);
+    border-right: none;
+    border-bottom: 1px solid var(--farbe-rand);
+  }
+
+  .sidebar h1 {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .nav-liste {
+    flex-direction: row;
+  }
+
+  /* Alle drei Buttons gleich breit und gleich hoch */
+  .nav-liste li {
+    flex: 1;
+    display: flex;
+  }
+
+  .nav-button {
+    min-height: 44px;
+    padding: var(--abstand-klein) var(--abstand-xs);
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  /* Akzentstreifen unten statt links */
+  .nav-button.aktiv {
+    box-shadow: inset 0 -3px 0 var(--farbe-akzent);
+  }
+
+  main {
+    padding: var(--abstand-mittel);
+  }
+
+  .formular-raster {
+    grid-template-columns: 1fr;
+  }
+
+  .formular-aktionen {
+    flex-direction: column;
+  }
+
+  .formular-aktionen button {
+    width: 100%;
+  }
+
+  .ansicht-hero {
+    min-height: 160px;
+  }
+
+  .ansicht-hero-inhalt h2 {
+    font-size: 1.5rem;
+  }
+}
