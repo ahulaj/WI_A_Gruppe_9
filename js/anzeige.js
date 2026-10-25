@@ -43,6 +43,7 @@ function erstelleRezeptKarte(rezept) {
 
   const anzeigenButton = erstelleElement("button", "Anzeigen", "button-sekundaer");
   anzeigenButton.type = "button";
+  anzeigenButton.setAttribute("aria-label", rezept.name + " anzeigen");
 
   anzeigenButton.addEventListener("click", function () {
     zeigeRezeptDetails(rezept);
@@ -52,6 +53,7 @@ function erstelleRezeptKarte(rezept) {
 
   const bearbeitenButton = erstelleElement("button", "Bearbeiten", "button-sekundaer");
   bearbeitenButton.type = "button";
+  bearbeitenButton.setAttribute("aria-label", rezept.name + " bearbeiten");
 
   bearbeitenButton.addEventListener("click", function () {
     starteBearbeitung(rezept.id);
@@ -61,7 +63,8 @@ function erstelleRezeptKarte(rezept) {
 
   const loeschenButton = erstelleElement("button", "Löschen", "button-gefahr");
   loeschenButton.type = "button";
-
+  loeschenButton.setAttribute("aria-label", rezept.name + " löschen");
+  
   loeschenButton.addEventListener("click", function () {
     loescheRezept(rezept.id);
   });
