@@ -1,149 +1,157 @@
 <!-- WI_A_Gruppe_9 -->
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rezeptverwalter</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <div class="app-layout">
-  <header class="sidebar">
-    <h1>Rezeptverwalter</h1>
-    <nav aria-label="Hauptnavigation">
-      <ul class="nav-liste">
-        <li><button type="button" class="nav-button aktiv" data-ansicht="neues-rezept" aria-current="page">Neues Rezept</button></li>
-        <li><button type="button" class="nav-button" data-ansicht="meine-rezepte">Meine Rezepte</button></li>
-        <li><button type="button" class="nav-button" data-ansicht="ueber-uns">Über uns</button></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="sidebar">
+      <h1>Rezeptverwalter</h1>
+      <nav aria-label="Hauptnavigation">
+        <ul class="nav-liste">
+          <li><button type="button" class="nav-button aktiv" data-ansicht="neues-rezept" aria-current="page">Neues
+              Rezept</button></li>
+          <li><button type="button" class="nav-button" data-ansicht="meine-rezepte">Meine Rezepte</button></li>
+          <li><button type="button" class="nav-button" data-ansicht="ueber-uns">Über uns</button></li>
+        </ul>
+      </nav>
+    </header>
 
-  <main>
-    <section id="ansicht-neues-rezept" class="ansicht aktiv">
+    <main>
+      <section id="ansicht-neues-rezept" class="ansicht aktiv">
         <div class="ansicht-hero ansicht-hero--start">
-            <div class="ansicht-hero-inhalt">
-                <h2>Neues Rezept</h2>
-                <p>Halte deine Lieblingsrezepte fest, mit Zutaten und Zubereitung.</p>
-            </div>
+          <div class="ansicht-hero-inhalt">
+            <h2>Neues Rezept</h2>
+            <p>Halte deine Lieblingsrezepte fest, mit Zutaten und Zubereitung.</p>
+          </div>
         </div>
         <div class="karte">
-            <h3 id="formular-titel">Neues Rezept</h3>
+          <h3 id="formular-titel">Neues Rezept</h3>
 
-            <form id="rezept-formular" novalidate>
-                <div class="formular-feld">
-                    <label for="rezept-name">Name des Rezepts</label>
-                    <input type="text" id="rezept-name" name="rezept-name" placeholder="z. B. Spaghetti Bolognese">
-                    <p class="fehler-text" id="fehler-name"></p>
-                </div>
-
-                <div class="formular-raster">
-                    <div class="formular-feld">
-                        <label for="rezept-kategorie">Kategorie</label>
-                        <select id="rezept-kategorie" name="rezept-kategorie">
-                            <option value="fruehstueck">Frühstück</option>
-                            <option value="hauptgericht" selected>Hauptgericht</option>
-                            <option value="dessert">Dessert</option>
-                            <option value="snack">Snack</option>
-                        </select>
-                    </div>
-
-                    <div class="formular-feld">
-                        <label for="rezept-dauer">Zubereitungszeit (Minuten)</label>
-                        <input type="number" id="rezept-dauer" name="rezept-dauer" min="1" max="600" step="1" placeholder="z. B. 30">
-                        <p class="fehler-text" id="fehler-dauer"></p>
-                    </div>
-                </div>
-
-                <div class="formular-feld">
-                    <label for="rezept-zutaten">Zutaten (eine pro Zeile)</label>
-                    <textarea id="rezept-zutaten" name="rezept-zutaten" rows="5" placeholder="z. B. 200 g Spaghetti"></textarea>
-                    <p class="fehler-text" id="fehler-zutaten"></p>
-                </div>
-
-                <div class="formular-feld">
-                    <label for="rezept-zubereitung">Zubereitung (ein Schritt pro Zeile)</label>
-                    <textarea id="rezept-zubereitung" name="rezept-zubereitung" rows="6" placeholder="z. B. Wasser salzen und zum Kochen bringen"></textarea>
-                    <p class="fehler-text" id="fehler-zubereitung"></p>
-                </div>
-
-                <div class="formular-aktionen">
-                    <button type="submit" id="speichern-button">Rezept speichern</button>
-                    <button type="button" id="abbrechen-button" class="button-sekundaer versteckt">Abbrechen</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <section id="ansicht-meine-rezepte" class="ansicht">
-        <div class="ansicht-hero ansicht-hero--szene">
-            <div class="ansicht-hero-inhalt">
-                <h2>Meine Rezepte</h2>
-                <p>Durchsuche, filtere und verwalte deine gespeicherten Rezepte.</p>
+          <form id="rezept-formular" novalidate>
+            <div class="formular-feld">
+              <label for="rezept-name">Name des Rezepts</label>
+              <input type="text" id="rezept-name" name="rezept-name" placeholder="z. B. Spaghetti Bolognese">
+              <p class="fehler-text" id="fehler-name"></p>
             </div>
+
+            <div class="formular-raster">
+              <div class="formular-feld">
+                <label for="rezept-kategorie">Kategorie</label>
+                <select id="rezept-kategorie" name="rezept-kategorie">
+                  <option value="fruehstueck">Frühstück</option>
+                  <option value="hauptgericht" selected>Hauptgericht</option>
+                  <option value="dessert">Dessert</option>
+                  <option value="snack">Snack</option>
+                </select>
+              </div>
+
+              <div class="formular-feld">
+                <label for="rezept-dauer">Zubereitungszeit (Minuten)</label>
+                <input type="number" id="rezept-dauer" name="rezept-dauer" min="1" max="600" step="1"
+                  placeholder="z. B. 30">
+                <p class="fehler-text" id="fehler-dauer"></p>
+              </div>
+            </div>
+
+            <div class="formular-feld">
+              <label for="rezept-zutaten">Zutaten (eine pro Zeile)</label>
+              <textarea id="rezept-zutaten" name="rezept-zutaten" rows="5"
+                placeholder="z. B. 200 g Spaghetti"></textarea>
+              <p class="fehler-text" id="fehler-zutaten"></p>
+            </div>
+
+            <div class="formular-feld">
+              <label for="rezept-zubereitung">Zubereitung (ein Schritt pro Zeile)</label>
+              <textarea id="rezept-zubereitung" name="rezept-zubereitung" rows="6"
+                placeholder="z. B. Wasser salzen und zum Kochen bringen"></textarea>
+              <p class="fehler-text" id="fehler-zubereitung"></p>
+            </div>
+
+            <div class="formular-aktionen">
+              <button type="submit" id="speichern-button">Rezept speichern</button>
+              <button type="button" id="abbrechen-button" class="button-sekundaer versteckt">Abbrechen</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="ansicht-meine-rezepte" class="ansicht">
+        <div class="ansicht-hero ansicht-hero--szene">
+          <div class="ansicht-hero-inhalt">
+            <h2>Meine Rezepte</h2>
+            <p>Durchsuche, filtere und verwalte deine gespeicherten Rezepte.</p>
+          </div>
         </div>
         <div class="filter-leiste karte">
-            <div class="formular-feld">
-                <label for="suche-eingabe">Nach Name oder Zutat suchen</label>
-                <input type="search" id="suche-eingabe" placeholder="z. B. Spaghetti oder Tomate">
-            </div>
-            <div class="formular-feld">
-                <label for="filter-kategorie">Kategorie</label>
-                <select id="filter-kategorie">
-                    <option value="alle">Alle Kategorien</option>
-                    <option value="fruehstueck">Frühstück</option>
-                    <option value="hauptgericht">Hauptgericht</option>
-                    <option value="dessert">Dessert</option>
-                    <option value="snack">Snack</option>
-                </select>
-            </div>
+          <div class="formular-feld">
+            <label for="suche-eingabe">Nach Name oder Zutat suchen</label>
+            <input type="search" id="suche-eingabe" placeholder="z. B. Spaghetti oder Tomate">
+          </div>
+          <div class="formular-feld">
+            <label for="filter-kategorie">Kategorie</label>
+            <select id="filter-kategorie">
+              <option value="alle">Alle Kategorien</option>
+              <option value="fruehstueck">Frühstück</option>
+              <option value="hauptgericht">Hauptgericht</option>
+              <option value="dessert">Dessert</option>
+              <option value="snack">Snack</option>
+            </select>
+          </div>
         </div>
         <p id="leer-hinweis" class="hinweis versteckt"></p>
         <p id="treffer-anzahl" aria-live="polite"></p>
         <div id="rezept-liste" class="rezept-liste"></div>
-    </section>
-   
-    <section id="ansicht-ueber-uns" class="ansicht">
+      </section>
+
+      <section id="ansicht-ueber-uns" class="ansicht">
         <div class="ansicht-hero ansicht-hero--szene">
-            <div class="ansicht-hero-inhalt">
-                <h2>Über uns</h2>
-                <p>Wer hinter dem Rezeptverwalter steckt.</p>
-            </div>
+          <div class="ansicht-hero-inhalt">
+            <h2>Über uns</h2>
+            <p>Wer hinter dem Rezeptverwalter steckt.</p>
+          </div>
         </div>
         <div class="karte">
-            <h3>Unser Projekt</h3>
-            <p>Der Rezeptverwalter entsteht als Portfolioprüfung „Einführung Webtechnologien“ im Kurs WWI25A an der DHBW Mosbach. Mit ihm lassen sich eigene Rezepte anlegen, durchsuchen, nach Kategorie filtern, bearbeiten und löschen. Alle Daten bleiben direkt im Browser gespeichert.</p>
+          <h3>Unser Projekt</h3>
+          <p>Der Rezeptverwalter entsteht als Portfolioprüfung „Einführung Webtechnologien“ im Kurs WWI25A an der DHBW
+            Mosbach. Mit ihm lassen sich eigene Rezepte anlegen, durchsuchen, nach Kategorie filtern, bearbeiten und
+            löschen. Alle Daten bleiben direkt im Browser gespeichert.</p>
 
-            <h3>Unser Team</h3>
-            <div class="team-raster">
-                <article class="team-karte">
-                    <span class="team-initialen" aria-hidden="true">NS</span>
-                    <h4>Niklas Schusser</h4>
-                    <p>Rezeptanzeige, Detailansicht und Rezeptraster</p>
-                    <p>Duales Studium bei der FIS Informationssysteme und Consulting GmbH</p>
-                </article>
-                <article class="team-karte">
-                    <span class="team-initialen" aria-hidden="true">MG</span>
-                    <h4>Maximilian Göllnitz</h4>
-                    <p>Formular, Eingabeprüfung und Bearbeiten</p>
-                    <p>Duales Studium bei der FIS Informationssysteme und Consulting GmbH</p>
-                </article>
-                <article class="team-karte">
-                    <span class="team-initialen" aria-hidden="true">AH</span>
-                    <h4>Arlind Hulaj</h4>
-                    <p>Speicherung, Suche, Filter und Navigation</p>
-                    <p>Duales Studium bei der FIS Informationssysteme und Consulting GmbH</p>
-                </article>
-            </div>
+          <h3>Unser Team</h3>
+          <div class="team-raster">
+            <article class="team-karte">
+              <span class="team-initialen" aria-hidden="true">NS</span>
+              <h4>Niklas Schusser</h4>
+              <p>Rezeptanzeige, Detailansicht und Rezeptraster</p>
+              <p>Duales Studium bei der FIS Informationssysteme und Consulting GmbH</p>
+            </article>
+            <article class="team-karte">
+              <span class="team-initialen" aria-hidden="true">MG</span>
+              <h4>Maximilian Göllnitz</h4>
+              <p>Formular, Eingabeprüfung und Bearbeiten</p>
+              <p>Duales Studium bei der FIS Informationssysteme und Consulting GmbH</p>
+            </article>
+            <article class="team-karte">
+              <span class="team-initialen" aria-hidden="true">AH</span>
+              <h4>Arlind Hulaj</h4>
+              <p>Speicherung, Suche, Filter und Navigation</p>
+              <p>Duales Studium bei der FIS Informationssysteme und Consulting GmbH</p>
+            </article>
+          </div>
         </div>
-    </section>
-  <footer>
-    <p>WI_A_Gruppe_9 · DHBW Mosbach</p>
-  </footer>
-</main>
+      </section>
+      <footer>
+        <p>WI_A_Gruppe_9 · DHBW Mosbach</p>
+      </footer>
+    </main>
   </div>
-    <dialog id="rezept-dialog" aria-labelledby="dialog-titel">
+  <dialog id="rezept-dialog" aria-labelledby="dialog-titel">
     <h2 id="dialog-titel"></h2>
     <p id="dialog-info"></p>
 
@@ -157,12 +165,13 @@
   </dialog>
 
 
-<script src="js/speicher.js"></script>
-<script src="js/anzeige.js"></script>
-<script src="js/formular.js"></script>
-<script src="js/filter.js"></script>
-<script src="js/navigation.js"></script>
-<script src="js/app.js"></script>
+  <script src="js/speicher.js"></script>
+  <script src="js/anzeige.js"></script>
+  <script src="js/formular.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/app.js"></script>
 
 </body>
+
 </html>
