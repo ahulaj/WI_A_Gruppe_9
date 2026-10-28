@@ -3,15 +3,15 @@
 const SPEICHER_SCHLUESSEL = "wi_a_gruppe_9_rezepte";
 
 // Liest alle gespeicherten Rezepte aus dem localStorage
-// Bei kaputten Daten wird eine leere Liste zurückgegeben
+// Bei kaputten Daten oder gesperrtem Speicher wird eine leere Liste zurückgegeben
 function ladeRezepte() {
-  const gespeicherterText = localStorage.getItem(SPEICHER_SCHLUESSEL);
-
-  if (gespeicherterText === null) {
-    return [];
-  }
-
   try {
+    const gespeicherterText = localStorage.getItem(SPEICHER_SCHLUESSEL);
+
+    if (gespeicherterText === null) {
+      return [];
+    }
+
     const daten = JSON.parse(gespeicherterText);
 
     if (!Array.isArray(daten)) {
@@ -26,7 +26,11 @@ function ladeRezepte() {
   }
 }
 
-// Speichert die Liste aller Rezepte im localStorage
+// Speichert die Liste aller Rezepte im localStorage und meldet, wenn das nicht klappt
 function speichereRezepte(rezepte) {
-  localStorage.setItem(SPEICHER_SCHLUESSEL, JSON.stringify(rezepte));
+  try {
+    localStorage.setItem(SPEICHER_SCHLUESSEL, JSON.stringify(rezepte));
+  } catch (fehler) {
+    alert("Das Rezept konnte nicht gespeichert werden. Bitte prüfe, ob dein Browser das Speichern erlaubt.");
+  }
 }
