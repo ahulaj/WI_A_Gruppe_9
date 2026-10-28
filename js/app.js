@@ -29,6 +29,11 @@ function speichereFormular(event) {
   }
 
   speichereRezepte(rezepte);
+
+  // Suche und Filter zurücksetzen, damit das gespeicherte Rezept sichtbar ist
+  sucheEingabe.value = "";
+  kategorieFilter.value = "alle";
+
   aktualisiereAnzeige();
   beendeBearbeitung();
   wechsleAnsicht("meine-rezepte");
