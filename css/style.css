@@ -369,6 +369,13 @@ button:focus-visible {
   margin: 0;
 }
 
+/* Lange Wörter ohne Leerzeichen umbrechen, damit nichts über den Rand läuft */
+.rezept-karte,
+.team-karte,
+#rezept-dialog {
+  overflow-wrap: anywhere;
+}
+
 /* Mittlere Bildschirme: 2 Spalten */
 @media (max-width: 1100px) {
   .rezept-liste {
