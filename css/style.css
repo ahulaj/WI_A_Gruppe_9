@@ -417,6 +417,17 @@ button:focus-visible {
   margin: var(--abstand-mittel) 0;
 }
 
+/* Hinweis bei leerer Liste oder ohne Treffer */
+.hinweis {
+  color: var(--farbe-text-hell);
+  text-align: center;
+  background-color: var(--farbe-flaeche);
+  border: 2px dashed var(--farbe-rand);
+  border-radius: var(--radius);
+  padding: var(--abstand-gross);
+  margin: var(--abstand-mittel) 0;
+}
+
 /* Trefferanzahl über der Liste */
 #treffer-anzahl {
   color: var(--farbe-text-hell);
