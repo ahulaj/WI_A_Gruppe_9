@@ -111,6 +111,11 @@ function zeigeTrefferAnzahl(anzahlGefunden, anzahlGesamt) {
   }
 }
 
+// Zeigt über der Liste eine kurze Bestätigung an, z. B. nach dem Speichern
+function zeigeStatusMeldung(text) {
+  document.getElementById("status-meldung").textContent = text;
+}
+
 // Füllt den Dialog mit allen Infos des Rezepts und öffnet ihn
 function zeigeRezeptDetails(rezept) {
   const dialog = document.getElementById("rezept-dialog");

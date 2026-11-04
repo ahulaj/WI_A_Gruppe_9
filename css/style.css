@@ -410,6 +410,13 @@ button:focus-visible {
   margin-bottom: 0;
 }
 
+/* Bestätigung nach dem Speichern und Löschen */
+.status-meldung {
+  color: var(--farbe-primaer);
+  font-weight: 700;
+  margin: var(--abstand-mittel) 0;
+}
+
 /* Trefferanzahl über der Liste */
 #treffer-anzahl {
   color: var(--farbe-text-hell);

@@ -16,7 +16,9 @@ function speichereFormular(event) {
     return;
   }
 
-  if (bearbeitetesRezeptId !== null) {
+  const istBearbeitung = bearbeitetesRezeptId !== null;
+
+  if (istBearbeitung) {
     const index = rezepte.findIndex(rezept => rezept.id === bearbeitetesRezeptId);
     daten.id = bearbeitetesRezeptId;
 
@@ -36,6 +38,11 @@ function speichereFormular(event) {
 
   aktualisiereAnzeige();
   beendeBearbeitung();
+
+  const meldung = istBearbeitung
+    ? "Änderungen an „" + daten.name + "“ wurden gespeichert."
+    : "Rezept „" + daten.name + "“ wurde gespeichert.";
+  zeigeStatusMeldung(meldung);
   wechsleAnsicht("meine-rezepte");
 }
 
@@ -80,6 +87,8 @@ function loescheRezept(id) {
 
   rezepte = rezepte.filter(rezept => rezept.id !== id);
   speichereRezepte(rezepte);
+
+  zeigeStatusMeldung("Rezept „" + rezept.name + "“ wurde gelöscht.");
 
   if (id === bearbeitetesRezeptId) {
     beendeBearbeitung();
