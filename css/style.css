@@ -22,6 +22,10 @@
   --radius: 14px;
   --radius-klein: 8px;
   --schatten: 0 2px 10px rgba(31, 42, 36, 0.08);
+
+  --farbe-overlay-stark: rgba(20, 30, 25, 0.85);
+  --farbe-overlay: rgba(20, 30, 25, 0.45);
+  --farbe-backdrop: rgba(20, 30, 25, 0.55);
 }
 
 * {
@@ -347,11 +351,11 @@ button:focus-visible {
 
 /* Dunkler Verlauf von links, damit die weiße Schrift lesbar bleibt */
 .ansicht-hero--start {
-  background-image: linear-gradient(90deg, rgba(20, 30, 25, 0.85) 0%, rgba(20, 30, 25, 0.45) 55%, rgba(20, 30, 25, 0) 100%), url("../img/hintergrund-start.jpg");
+  background-image: linear-gradient(90deg, var(--farbe-overlay-stark) 0%, var(--farbe-overlay) 55%, transparent 100%), url("../img/hintergrund-start.jpg");
 }
 
 .ansicht-hero--szene {
-  background-image: linear-gradient(90deg, rgba(20, 30, 25, 0.85) 0%, rgba(20, 30, 25, 0.45) 55%, rgba(20, 30, 25, 0) 100%), url("../img/hintergrund-szene.jpg");
+  background-image: linear-gradient(90deg, var(--farbe-overlay-stark) 0%, var(--farbe-overlay) 55%, transparent 100%), url("../img/hintergrund-szene.jpg");
 }
 
 .ansicht-hero-inhalt {
@@ -446,7 +450,7 @@ button:focus-visible {
 
 /* Abgedunkelter Hintergrund hinter dem Dialog */
 #rezept-dialog::backdrop {
-  background: rgba(20, 30, 25, 0.55);
+  background: var(--farbe-backdrop);
 }
 
 /* Listen im Dialog mit Einzug */
