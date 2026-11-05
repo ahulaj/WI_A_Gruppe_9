@@ -531,4 +531,12 @@ button:focus-visible {
   .ansicht-hero-inhalt h2 {
     font-size: 1.5rem;
   }
+  /* Verlauf von oben nach unten, damit der Text bei voller Breite nie auf hellem Foto liegt */
+  .ansicht-hero--start {
+    background-image: linear-gradient(var(--farbe-overlay-stark), var(--farbe-backdrop)), url("../img/hintergrund-start.jpg");
+  }
+
+  .ansicht-hero--szene {
+    background-image: linear-gradient(var(--farbe-overlay-stark), var(--farbe-backdrop)), url("../img/hintergrund-szene.jpg");
+  }
 }
