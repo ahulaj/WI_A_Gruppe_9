@@ -40,6 +40,26 @@ body {
   color: var(--farbe-text);
 }
 
+/* Sprunglink: unsichtbar, bis er per Tab-Taste den Fokus bekommt */
+.sprunglink {
+  position: absolute;
+  left: -9999px;
+  top: var(--abstand-klein);
+  z-index: 100;
+  padding: var(--abstand-klein) var(--abstand-mittel);
+  background-color: var(--farbe-primaer);
+  color: var(--farbe-flaeche);
+  border-radius: var(--radius-klein);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sprunglink:focus {
+  left: var(--abstand-klein);
+  outline: 3px solid var(--farbe-primaer-dunkel);
+  outline-offset: 2px;
+}
+
 /* Einheitliche Schriftgrößen für alle Überschriften */
 h1,
 h2,
