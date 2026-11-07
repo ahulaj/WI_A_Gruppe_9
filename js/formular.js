@@ -97,6 +97,10 @@ function pruefeFormular(daten) {
     istGueltig = false;
   }
 
+  if (!istGueltig) {
+    document.querySelector(".feld-fehler").focus();
+  }
+
   return istGueltig;
 }
 
