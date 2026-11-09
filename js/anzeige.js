@@ -13,6 +13,7 @@ function kategorieText(wert) {
   return KATEGORIE_TEXTE[wert] || "Sonstiges";
 }
 
+// Erzeugt ein HTML-Element mit Text und optionaler CSS-Klasse
 function erstelleElement(tagName, text, klassenName) {
   const element = document.createElement(tagName);
   element.textContent = text;
@@ -45,9 +46,7 @@ function erstelleRezeptKarte(rezept) {
   anzeigenButton.type = "button";
   anzeigenButton.setAttribute("aria-label", rezept.name + " anzeigen");
 
-  anzeigenButton.addEventListener("click", function () {
-    zeigeRezeptDetails(rezept);
-  });
+  anzeigenButton.addEventListener("click", () => zeigeRezeptDetails(rezept));
 
   kartenAktionen.appendChild(anzeigenButton);
 
@@ -55,19 +54,15 @@ function erstelleRezeptKarte(rezept) {
   bearbeitenButton.type = "button";
   bearbeitenButton.setAttribute("aria-label", rezept.name + " bearbeiten");
 
-  bearbeitenButton.addEventListener("click", function () {
-    starteBearbeitung(rezept.id);
-  });
+  bearbeitenButton.addEventListener("click", () => starteBearbeitung(rezept.id));
 
   kartenAktionen.appendChild(bearbeitenButton);
 
   const loeschenButton = erstelleElement("button", "Löschen", "button-gefahr");
   loeschenButton.type = "button";
   loeschenButton.setAttribute("aria-label", rezept.name + " löschen");
-  
-  loeschenButton.addEventListener("click", function () {
-    loescheRezept(rezept.id);
-  });
+
+  loeschenButton.addEventListener("click", () => loescheRezept(rezept.id));
 
   kartenAktionen.appendChild(loeschenButton);
 
@@ -91,9 +86,7 @@ function zeigeRezepte(liste, hinweisText) {
     leerHinweis.classList.add("versteckt");
   }
 
-  liste.forEach(function (rezept) {
-    rezeptListe.appendChild(erstelleRezeptKarte(rezept));
-  });
+  liste.forEach(rezept => rezeptListe.appendChild(erstelleRezeptKarte(rezept)));
 }
 
 // Zeigt über der Liste die Anzahl der Rezepte an
@@ -129,13 +122,9 @@ function zeigeRezeptDetails(rezept) {
   zutatenListe.textContent = "";
   schritteListe.textContent = "";
 
-  rezept.zutaten.forEach(function (zutat) {
-    zutatenListe.appendChild(erstelleElement("li", zutat));
-  });
+  rezept.zutaten.forEach(zutat => zutatenListe.appendChild(erstelleElement("li", zutat)));
 
-  rezept.zubereitung.forEach(function (schritt) {
-    schritteListe.appendChild(erstelleElement("li", schritt));
-  });
+  rezept.zubereitung.forEach(schritt => schritteListe.appendChild(erstelleElement("li", schritt)));
 
   dialog.showModal();
 }
