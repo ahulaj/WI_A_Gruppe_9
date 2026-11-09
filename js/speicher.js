@@ -1,5 +1,6 @@
 // WI_A_Gruppe_9
 
+// Schlüssel, unter dem alle Rezepte im localStorage liegen
 const SPEICHER_SCHLUESSEL = "wi_a_gruppe_9_rezepte";
 
 // Liest alle gespeicherten Rezepte aus dem localStorage

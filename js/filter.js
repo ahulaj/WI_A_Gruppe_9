@@ -1,8 +1,7 @@
 // WI_A_Gruppe_9
 
-// Gibt nur die Rezepte zurück, die zum Suchbegriff UND zur gewählten Kategorie passen.
-// Suchbegriff: Name oder mindestens eine Zutat enthält ihn (Groß- und Kleinschreibung egal)
-// Kategorie: "alle" bedeutet kein Filter
+// Gibt die Rezepte zurück, deren Name oder Zutaten den Suchbegriff enthalten
+// und die zur gewählten Kategorie passen ("alle" bedeutet kein Filter)
 function filtereRezepte(liste, suchbegriff, kategorie) {
   const begriff = suchbegriff.trim().toLowerCase();
 
