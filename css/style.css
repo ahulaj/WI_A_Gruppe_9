@@ -438,6 +438,7 @@ button:focus-visible {
 .status-meldung {
   color: var(--farbe-primaer);
   font-weight: 700;
+  overflow-wrap: anywhere;
   margin: var(--abstand-mittel) 0;
 }
 
