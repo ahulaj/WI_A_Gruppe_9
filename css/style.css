@@ -1,6 +1,8 @@
 /* WI_A_Gruppe_9 */
 
-/* Design-Variablen: alle Farben, Abstände und Rundungen stehen nur hier */
+/* ==========================================================
+   Variablen: alle Farben, Abstände und Rundungen stehen nur hier
+   ========================================================== */
 :root {
   --farbe-primaer: #2f6f4f;
   --farbe-primaer-dunkel: #24573e;
@@ -28,6 +30,9 @@
   --farbe-backdrop: rgba(20, 30, 25, 0.55);
 }
 
+/* ==========================================================
+   Grundlagen
+   ========================================================== */
 * {
   box-sizing: border-box;
 }
@@ -38,26 +43,6 @@ body {
   line-height: 1.5;
   background-color: var(--farbe-hintergrund);
   color: var(--farbe-text);
-}
-
-/* Sprunglink: unsichtbar, bis er per Tab-Taste den Fokus bekommt */
-.sprunglink {
-  position: absolute;
-  left: -9999px;
-  top: var(--abstand-klein);
-  z-index: 100;
-  padding: var(--abstand-klein) var(--abstand-mittel);
-  background-color: var(--farbe-primaer);
-  color: var(--farbe-flaeche);
-  border-radius: var(--radius-klein);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.sprunglink:focus {
-  left: var(--abstand-klein);
-  outline: 3px solid var(--farbe-primaer-dunkel);
-  outline-offset: 2px;
 }
 
 /* Einheitliche Schriftgrößen für alle Überschriften */
@@ -85,12 +70,6 @@ h4 {
   font-size: 1rem;
 }
 
-main {
-  flex: 1;
-  min-width: 0;
-  padding: var(--abstand-xl);
-}
-
 /* Weiße Fläche mit Rundung und Schatten, z. B. für das Formular */
 .karte {
   background-color: var(--farbe-flaeche);
@@ -99,6 +78,142 @@ main {
   padding: var(--abstand-gross);
 }
 
+/* ==========================================================
+   Layout und Navigation
+   ========================================================== */
+
+/* Seitenaufbau: Navigationsleiste links, Inhalt rechts */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  flex: 0 0 240px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--abstand-gross);
+  padding: var(--abstand-gross);
+  background-color: var(--farbe-flaeche);
+  border-right: 1px solid var(--farbe-rand);
+}
+
+/* Projektname in der Leiste etwas kleiner, damit er in die 240px passt */
+.sidebar h1 {
+  font-size: 1.35rem;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--abstand-xl);
+}
+
+/* Sprunglink: unsichtbar, bis er per Tab-Taste den Fokus bekommt */
+.sprunglink {
+  position: absolute;
+  left: -9999px;
+  top: var(--abstand-klein);
+  z-index: 100;
+  padding: var(--abstand-klein) var(--abstand-mittel);
+  background-color: var(--farbe-primaer);
+  color: var(--farbe-flaeche);
+  border-radius: var(--radius-klein);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sprunglink:focus {
+  left: var(--abstand-klein);
+  outline: 3px solid var(--farbe-primaer-dunkel);
+  outline-offset: 2px;
+}
+
+/* Nur die aktive Ansicht ist sichtbar */
+.ansicht {
+  display: none;
+}
+
+.ansicht.aktiv {
+  display: block;
+}
+
+/* Navigationsliste ohne Aufzählungszeichen */
+.nav-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--abstand-xs);
+}
+
+.nav-button {
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--farbe-text);
+}
+
+.nav-button:hover {
+  background-color: var(--farbe-primaer-hell);
+  border-color: transparent;
+}
+
+/* Aktiver Navigationspunkt mit Akzentstreifen links */
+.nav-button.aktiv {
+  background-color: var(--farbe-primaer-hell);
+  color: var(--farbe-primaer);
+  box-shadow: inset 3px 0 0 var(--farbe-akzent);
+}
+
+/* ==========================================================
+   Banner
+   ========================================================== */
+
+/* Foto-Banner oben auf jeder Ansicht */
+.ansicht-hero {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius);
+  background-size: cover;
+  background-position: center;
+  color: var(--farbe-flaeche);
+  margin-bottom: var(--abstand-gross);
+}
+
+/* Dunkler Verlauf von links, damit die weiße Schrift lesbar bleibt */
+.ansicht-hero--start {
+  background-image: linear-gradient(90deg, var(--farbe-overlay-stark) 0%, var(--farbe-overlay) 55%, transparent 100%), url("../img/hintergrund-start.jpg");
+}
+
+.ansicht-hero--szene {
+  background-image: linear-gradient(90deg, var(--farbe-overlay-stark) 0%, var(--farbe-overlay) 55%, transparent 100%), url("../img/hintergrund-szene.jpg");
+}
+
+.ansicht-hero-inhalt {
+  padding: var(--abstand-xl);
+  max-width: 460px;
+}
+
+.ansicht-hero-inhalt h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--farbe-flaeche);
+}
+
+.ansicht-hero-inhalt p {
+  margin: 0;
+}
+
+/* ==========================================================
+   Formular
+   ========================================================== */
 .formular-feld {
   display: flex;
   flex-direction: column;
@@ -145,15 +260,7 @@ textarea:focus {
   box-shadow: 0 0 0 3px var(--farbe-primaer-hell);
 }
 
-/* Fehlerhafte Felder bleiben auch beim Tippen rot markiert */
-.feld-fehler:focus {
-  border-color: var(--farbe-fehler);
-}
-
-.versteckt {
-  display: none;
-}
-
+/* Fehlermeldung unter dem Feld und rot markiertes Feld */
 .fehler-text {
   color: var(--farbe-fehler);
   font-size: 0.875rem;
@@ -164,7 +271,16 @@ textarea:focus {
   border-color: var(--farbe-fehler);
 }
 
-/* Buttons: Grundstil (primär) */
+/* Fehlerhafte Felder bleiben auch beim Tippen rot markiert */
+.feld-fehler:focus {
+  border-color: var(--farbe-fehler);
+}
+
+/* ==========================================================
+   Buttons
+   ========================================================== */
+
+/* Grundstil (primär) */
 button {
   background-color: var(--farbe-primaer);
   color: var(--farbe-flaeche);
@@ -187,7 +303,7 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* Buttons: sekundär (Anzeigen, Bearbeiten, Abbrechen, Schließen) */
+/* Sekundär (Anzeigen, Bearbeiten, Abbrechen, Schließen) */
 .button-sekundaer {
   background-color: var(--farbe-flaeche);
   color: var(--farbe-primaer);
@@ -199,7 +315,7 @@ button:focus-visible {
   border-color: var(--farbe-primaer);
 }
 
-/* Buttons: Gefahr (Löschen) */
+/* Gefahr (Löschen) */
 .button-gefahr {
   background-color: transparent;
   color: var(--farbe-fehler);
@@ -212,67 +328,54 @@ button:focus-visible {
   border-color: var(--farbe-fehler);
 }
 
-/* Navigation: nur die aktive Ansicht ist sichtbar */
-.ansicht {
-  display: none;
-}
+/* ==========================================================
+   Filter und Karten
+   ========================================================== */
 
-.ansicht.aktiv {
-  display: block;
-}
-
-/* Seitenaufbau: Navigationsleiste links, Inhalt rechts */
-.app-layout {
+/* Filterleiste: Suche und Kategorie nebeneinander, schmal untereinander */
+.filter-leiste {
   display: flex;
-  min-height: 100vh;
+  flex-wrap: wrap;
+  gap: var(--abstand-mittel);
+  align-items: flex-end;
 }
 
-.sidebar {
-  flex: 0 0 240px;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: var(--abstand-gross);
-  padding: var(--abstand-gross);
-  background-color: var(--farbe-flaeche);
-  border-right: 1px solid var(--farbe-rand);
+/* Suchfeld wächst mit, Kategorie bleibt schmaler */
+.filter-leiste .formular-feld:first-child {
+  flex: 1 1 260px;
 }
 
-/* Projektname in der Leiste etwas kleiner, damit er in die 240px passt */
-.sidebar h1 {
-  font-size: 1.35rem;
+.filter-leiste .formular-feld:last-child {
+  flex: 0 1 220px;
 }
 
-/* Navigationsliste ohne Aufzählungszeichen */
-.nav-liste {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--abstand-xs);
+.filter-leiste .formular-feld {
+  margin-bottom: 0;
 }
 
-.nav-button {
-  width: 100%;
-  text-align: left;
-  background-color: transparent;
-  border-color: transparent;
-  color: var(--farbe-text);
-}
-
-.nav-button:hover {
-  background-color: var(--farbe-primaer-hell);
-  border-color: transparent;
-}
-
-/* Aktiver Navigationspunkt mit Akzentstreifen links */
-.nav-button.aktiv {
-  background-color: var(--farbe-primaer-hell);
+/* Bestätigung nach dem Speichern und Löschen */
+.status-meldung {
   color: var(--farbe-primaer);
-  box-shadow: inset 3px 0 0 var(--farbe-akzent);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  margin: var(--abstand-mittel) 0;
+}
+
+/* Hinweis bei leerer Liste oder ohne Treffer */
+.hinweis {
+  color: var(--farbe-text-hell);
+  text-align: center;
+  background-color: var(--farbe-flaeche);
+  border: 2px dashed var(--farbe-rand);
+  border-radius: var(--radius);
+  padding: var(--abstand-gross);
+  margin: var(--abstand-mittel) 0;
+}
+
+/* Trefferanzahl über der Liste */
+#treffer-anzahl {
+  color: var(--farbe-text-hell);
+  margin: var(--abstand-mittel) 0;
 }
 
 /* Rezeptkarten im Raster: 3 Spalten, alle Zeilen gleich hoch */
@@ -331,7 +434,40 @@ button:focus-visible {
   margin: 0;
 }
 
-/* Über uns: Teamkarten im Raster */
+/* ==========================================================
+   Dialog
+   ========================================================== */
+#rezept-dialog {
+  width: min(640px, calc(100% - 2rem));
+  max-height: 85vh;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--abstand-xl);
+  box-shadow: var(--schatten);
+}
+
+/* Abgedunkelter Hintergrund hinter dem Dialog */
+#rezept-dialog::backdrop {
+  background: var(--farbe-backdrop);
+}
+
+/* Listen im Dialog mit Einzug */
+#rezept-dialog ul,
+#rezept-dialog ol {
+  padding-left: var(--abstand-gross);
+  margin: 0 0 var(--abstand-mittel);
+}
+
+/* Schließen-Button mit Abstand nach oben */
+#dialog-schliessen {
+  margin-top: var(--abstand-mittel);
+}
+
+/* ==========================================================
+   Über uns
+   ========================================================== */
+
+/* Teamkarten im Raster */
 .team-raster {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -357,40 +493,11 @@ button:focus-visible {
   margin-bottom: var(--abstand-klein);
 }
 
-/* Foto-Banner oben auf jeder Ansicht */
-.ansicht-hero {
-  min-height: 220px;
-  display: flex;
-  align-items: center;
-  border-radius: var(--radius);
-  background-size: cover;
-  background-position: center;
-  color: var(--farbe-flaeche);
-  margin-bottom: var(--abstand-gross);
-}
-
-/* Dunkler Verlauf von links, damit die weiße Schrift lesbar bleibt */
-.ansicht-hero--start {
-  background-image: linear-gradient(90deg, var(--farbe-overlay-stark) 0%, var(--farbe-overlay) 55%, transparent 100%), url("../img/hintergrund-start.jpg");
-}
-
-.ansicht-hero--szene {
-  background-image: linear-gradient(90deg, var(--farbe-overlay-stark) 0%, var(--farbe-overlay) 55%, transparent 100%), url("../img/hintergrund-szene.jpg");
-}
-
-.ansicht-hero-inhalt {
-  padding: var(--abstand-xl);
-  max-width: 460px;
-}
-
-.ansicht-hero-inhalt h2 {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--farbe-flaeche);
-}
-
-.ansicht-hero-inhalt p {
-  margin: 0;
+/* ==========================================================
+   Hilfsklassen
+   ========================================================== */
+.versteckt {
+  display: none;
 }
 
 /* Lange Wörter ohne Leerzeichen umbrechen, damit nichts über den Rand läuft */
@@ -400,90 +507,15 @@ button:focus-visible {
   overflow-wrap: anywhere;
 }
 
-/* Mittlere Bildschirme: 2 Spalten */
+/* ==========================================================
+   Media Queries
+   ========================================================== */
+
+/* Mittlere Bildschirme: 2 Kartenspalten */
 @media (max-width: 1100px) {
   .rezept-liste {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
-
-/* Schmale Bildschirme: 1 Spalte */
-@media (max-width: 700px) {
-  .rezept-liste {
-    grid-template-columns: 1fr;
-  }
-}
-/* Filterleiste: Suche und Kategorie nebeneinander, schmal untereinander */
-.filter-leiste {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--abstand-mittel);
-  align-items: flex-end;
-}
-
-/* Suchfeld wächst mit, Kategorie bleibt schmaler */
-.filter-leiste .formular-feld:first-child {
-  flex: 1 1 260px;
-}
-
-.filter-leiste .formular-feld:last-child {
-  flex: 0 1 220px;
-}
-
-.filter-leiste .formular-feld {
-  margin-bottom: 0;
-}
-
-/* Bestätigung nach dem Speichern und Löschen */
-.status-meldung {
-  color: var(--farbe-primaer);
-  font-weight: 700;
-  overflow-wrap: anywhere;
-  margin: var(--abstand-mittel) 0;
-}
-
-/* Hinweis bei leerer Liste oder ohne Treffer */
-.hinweis {
-  color: var(--farbe-text-hell);
-  text-align: center;
-  background-color: var(--farbe-flaeche);
-  border: 2px dashed var(--farbe-rand);
-  border-radius: var(--radius);
-  padding: var(--abstand-gross);
-  margin: var(--abstand-mittel) 0;
-}
-
-/* Trefferanzahl über der Liste */
-#treffer-anzahl {
-  color: var(--farbe-text-hell);
-  margin: var(--abstand-mittel) 0;
-}
-
-/* Detail-Dialog */
-#rezept-dialog {
-  width: min(640px, calc(100% - 2rem));
-  max-height: 85vh;
-  border: none;
-  border-radius: var(--radius);
-  padding: var(--abstand-xl);
-  box-shadow: var(--schatten);
-}
-
-/* Abgedunkelter Hintergrund hinter dem Dialog */
-#rezept-dialog::backdrop {
-  background: var(--farbe-backdrop);
-}
-
-/* Listen im Dialog mit Einzug */
-#rezept-dialog ul,
-#rezept-dialog ol {
-  padding-left: var(--abstand-gross);
-  margin: 0 0 var(--abstand-mittel);
-}
-
-/* Schließen-Button mit Abstand nach oben */
-#dialog-schliessen {
-  margin-top: var(--abstand-mittel);
 }
 
 /* Handy und Tablet: Navigation oben als Zeile, alles einspaltig */
@@ -552,6 +584,7 @@ button:focus-visible {
   .ansicht-hero-inhalt h2 {
     font-size: 1.5rem;
   }
+
   /* Verlauf von oben nach unten, damit der Text bei voller Breite nie auf hellem Foto liegt */
   .ansicht-hero--start {
     background-image: linear-gradient(var(--farbe-overlay-stark), var(--farbe-backdrop)), url("../img/hintergrund-start.jpg");
@@ -559,5 +592,12 @@ button:focus-visible {
 
   .ansicht-hero--szene {
     background-image: linear-gradient(var(--farbe-overlay-stark), var(--farbe-backdrop)), url("../img/hintergrund-szene.jpg");
+  }
+}
+
+/* Schmale Bildschirme: 1 Kartenspalte */
+@media (max-width: 700px) {
+  .rezept-liste {
+    grid-template-columns: 1fr;
   }
 }
