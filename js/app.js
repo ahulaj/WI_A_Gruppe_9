@@ -1,8 +1,10 @@
 // WI_A_Gruppe_9
 
+// Alle gespeicherten Rezepte und die id des Rezepts, das gerade bearbeitet wird
 let rezepte = ladeRezepte();
 let bearbeitetesRezeptId = null;
 
+// Häufig genutzte Elemente der Seite
 const rezeptFormular = document.getElementById("rezept-formular");
 const sucheEingabe = document.getElementById("suche-eingabe");
 const kategorieFilter = document.getElementById("filter-kategorie");
@@ -97,7 +99,7 @@ function loescheRezept(id) {
   aktualisiereAnzeige();
 }
 
-// Filtert die Rezepte nach dem Suchbegriff und zeigt das Ergebnis an
+// Filtert nach Suchbegriff und Kategorie und zeigt Karten, Hinweis und Trefferanzahl an
 function aktualisiereAnzeige() {
   const gefilterteRezepte = filtereRezepte(rezepte, sucheEingabe.value, kategorieFilter.value);
 
@@ -112,13 +114,17 @@ function aktualisiereAnzeige() {
   zeigeTrefferAnzahl(gefilterteRezepte.length, rezepte.length);
 }
 
+// Speichert das Formular beim Absenden
 rezeptFormular.addEventListener("submit", speichereFormular);
+
 // Bricht die Bearbeitung ab und kehrt zur Rezeptliste zurück
 document.getElementById("abbrechen-button").addEventListener("click", () => {
   beendeBearbeitung();
   wechsleAnsicht("meine-rezepte");
 });
-document.getElementById("dialog-schliessen").addEventListener("click", function () {
+
+// Schließt die Detailansicht
+document.getElementById("dialog-schliessen").addEventListener("click", () => {
   document.getElementById("rezept-dialog").close();
 });
 
@@ -126,6 +132,8 @@ document.getElementById("dialog-schliessen").addEventListener("click", function 
 document.querySelectorAll(".nav-button").forEach(button => {
   button.addEventListener("click", () => wechsleAnsicht(button.dataset.ansicht));
 });
+
+// Aktualisiert die Liste bei jeder Eingabe in die Suche und bei jeder Kategorie-Auswahl
 sucheEingabe.addEventListener("input", aktualisiereAnzeige);
 kategorieFilter.addEventListener("change", aktualisiereAnzeige);
 
@@ -136,4 +144,5 @@ FEHLER_FELDER.forEach(feldName => {
   });
 });
 
+// Zeigt beim Start alle gespeicherten Rezepte an
 aktualisiereAnzeige();

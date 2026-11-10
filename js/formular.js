@@ -1,5 +1,9 @@
 // WI_A_Gruppe_9
 
+// Namen der Felder, die eine eigene Fehlermeldung haben
+const FEHLER_FELDER = ["name", "dauer", "zutaten", "zubereitung"];
+
+// Macht aus einem mehrzeiligen Text eine Liste und lässt leere Zeilen weg
 function textZuListe(text) {
   return text
     .split("\n")
@@ -7,6 +11,7 @@ function textZuListe(text) {
     .filter(zeile => zeile.length > 0);
 }
 
+// Liest alle Felder des Formulars aus und gibt sie als Rezept-Objekt zurück
 function leseFormular() {
   const dauerText = document.getElementById("rezept-dauer").value;
 
@@ -19,6 +24,7 @@ function leseFormular() {
   };
 }
 
+// Zeigt die Fehlermeldung unter einem Feld an und markiert das Feld rot
 function zeigeFehler(feldName, text) {
   const fehlerAbsatz = document.getElementById("fehler-" + feldName);
 
@@ -33,8 +39,6 @@ function zeigeFehler(feldName, text) {
     feld.classList.add("feld-fehler");
   }
 }
-
-const FEHLER_FELDER = ["name", "dauer", "zutaten", "zubereitung"];
 
 // Entfernt Fehlermeldung und Markierung für genau ein Feld
 function entferneFehler(feldName) {
@@ -57,6 +61,7 @@ function entferneAlleFehler() {
   FEHLER_FELDER.forEach(feldName => entferneFehler(feldName));
 }
 
+// Prüft alle Eingaben, zeigt passende Meldungen an und gibt true oder false zurück
 function pruefeFormular(daten) {
   entferneAlleFehler();
   let istGueltig = true;
@@ -97,6 +102,7 @@ function pruefeFormular(daten) {
     istGueltig = false;
   }
 
+  // Cursor direkt in das erste fehlerhafte Feld setzen
   if (!istGueltig) {
     document.querySelector(".feld-fehler").focus();
   }
@@ -104,6 +110,7 @@ function pruefeFormular(daten) {
   return istGueltig;
 }
 
+// Schreibt ein vorhandenes Rezept zum Bearbeiten in das Formular
 function fuelleFormular(rezept) {
   document.getElementById("rezept-name").value = rezept.name;
   document.getElementById("rezept-kategorie").value = rezept.kategorie;
