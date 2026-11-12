@@ -1,7 +1,7 @@
-// WI_A_Gruppe_9
+// WI_A_Gruppe_8 (Gruppe H)
 
 // Schlüssel, unter dem alle Rezepte im localStorage liegen
-const SPEICHER_SCHLUESSEL = "wi_a_gruppe_9_rezepte";
+const SPEICHER_SCHLUESSEL = "wi_a_gruppe_8_rezepte";
 
 // Liest alle gespeicherten Rezepte aus dem localStorage
 // Bei kaputten Daten oder gesperrtem Speicher wird eine leere Liste zurückgegeben

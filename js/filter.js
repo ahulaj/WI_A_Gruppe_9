@@ -1,4 +1,4 @@
-// WI_A_Gruppe_9
+// WI_A_Gruppe_8 (Gruppe H)
 
 // Gibt die Rezepte zurück, deren Name oder Zutaten den Suchbegriff enthalten
 // und die zur gewählten Kategorie passen ("alle" bedeutet kein Filter)

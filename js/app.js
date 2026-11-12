@@ -1,4 +1,4 @@
-// WI_A_Gruppe_9
+// WI_A_Gruppe_8 (Gruppe H)
 
 // Alle gespeicherten Rezepte und die id des Rezepts, das gerade bearbeitet wird
 let rezepte = ladeRezepte();

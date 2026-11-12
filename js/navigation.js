@@ -1,4 +1,4 @@
-// WI_A_Gruppe_9
+// WI_A_Gruppe_8 (Gruppe H)
 
 // Zeigt die gewählte Ansicht an und markiert den passenden Navigationsbutton
 function wechsleAnsicht(ansichtName) {

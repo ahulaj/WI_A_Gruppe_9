@@ -1,4 +1,4 @@
-// WI_A_Gruppe_9
+// WI_A_Gruppe_8 (Gruppe H)
 
 // Namen der Felder, die eine eigene Fehlermeldung haben
 const FEHLER_FELDER = ["name", "dauer", "zutaten", "zubereitung"];

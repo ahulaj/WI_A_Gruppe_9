@@ -1,4 +1,4 @@
-<!-- WI_A_Gruppe_9 -->
+<!-- WI_A_Gruppe_8 (Gruppe H) -->
 
 # Rezeptverwalter
 
@@ -7,6 +7,8 @@
 Portfolioprüfung „Einführung Webtechnologien“ im Modul „Fortgeschrittene Systementwicklung“, Kurs WWI25A, DHBW Mosbach.
 
 ## Team
+
+Gruppe H im Kurs, offiziell WI_A_Gruppe_8.
 
 - Niklas Schusser
 - Maximilian Göllnitz
@@ -18,7 +20,7 @@ Der Rezeptverwalter ist eine Webanwendung, in der man eigene Rezepte mit Zutaten
 
 ## Starten
 
-1. Den Ordner `WI_A_Gruppe_9` entpacken.
+1. Den Ordner `WI_A_Gruppe_8` entpacken.
 2. Die Datei `index.html` per Doppelklick in einem aktuellen Browser öffnen (zum Beispiel Chrome, Edge oder Firefox). Ein aktueller Browser ist nötig, weil die Detailansicht das HTML-Element `dialog` nutzt.
 3. Eine Installation ist nicht nötig. Die Anwendung kommt ohne Frameworks, Bibliotheken oder Internetverbindung aus.
 
@@ -76,6 +78,10 @@ Die beiden Hintergrundbilder der Foto-Banner wurden mit Google Gemini erzeugt un
 | --- | --- | --- |
 | `img/hintergrund-start.jpg` | Banner der Ansicht „Neues Rezept“ | Breites Food-Foto für das Banner einer Rezept-Webseite: helle Küchenarbeitsplatte in warmem Licht, im Vordergrund eine Schüssel mit Quinoa, gegrilltem Hähnchen, Avocado, Kirschtomaten und frischen Kräutern, im Hintergrund unscharf eine zweite Schüssel, Kräutertöpfe, Olivenöl und ein Holzbrett. Die linke Bildseite bleibt ruhig und frei für Text. |
 | `img/hintergrund-szene.jpg` | Banner der Ansichten „Meine Rezepte“ und „Über uns“ | Breites Küchenfoto für das Banner einer Rezept-Webseite: leere helle Steinarbeitsplatte im warmen Abendlicht, einzelne frische Basilikumblätter im Vordergrund, im Hintergrund unscharf Kräutertöpfe, Pfeffermühlen, Olivenöl, ein Holzbrett und ein Küchentuch. Die linke Bildseite bleibt ruhig und frei für Text. |
+
+## Hinweis zum Gruppennamen
+
+Wir sind im Kurs Gruppe H. Das entspricht der Gruppennummer 8, unser offizieller Gruppenname ist also WI_A_Gruppe_8. Während der Entwicklung stand im Projekt versehentlich WI_A_Gruppe_9. Das ist uns erst bei der Vorbereitung der Abgabe aufgefallen. Wir haben den Gruppennamen daraufhin in allen Dateien auf WI_A_Gruppe_8 korrigiert. Das GitHub-Repository und die älteren Commits in der Git-Historie tragen noch den alten Namen WI_A_Gruppe_9.
 
 ## Team und Zuständigkeiten
 

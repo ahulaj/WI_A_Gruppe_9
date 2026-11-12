@@ -1,4 +1,4 @@
-// WI_A_Gruppe_9
+// WI_A_Gruppe_8 (Gruppe H)
 
 // Lesbare Namen für die internen Kategorie-Werte
 const KATEGORIE_TEXTE = {
