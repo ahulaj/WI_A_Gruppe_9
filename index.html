@@ -13,6 +13,7 @@
 <body>
   <a href="#inhalt" class="sprunglink">Zum Inhalt springen</a>
   <div class="app-layout">
+    <!-- Navigation -->
     <header class="sidebar">
       <h1>Rezeptverwalter</h1>
       <nav aria-label="Hauptnavigation">
@@ -26,6 +27,7 @@
     </header>
 
     <main id="inhalt">
+      <!-- Ansicht: Neues Rezept -->
       <section id="ansicht-neues-rezept" class="ansicht aktiv">
         <div class="ansicht-hero ansicht-hero--start">
           <div class="ansicht-hero-inhalt">
@@ -39,14 +41,15 @@
           <form id="rezept-formular" novalidate>
             <div class="formular-feld">
               <label for="rezept-name">Name des Rezepts</label>
-              <input type="text" id="rezept-name" aria-describedby="fehler-name" name="rezept-name" placeholder="z. B. Spaghetti Bolognese">
+              <input type="text" id="rezept-name" aria-describedby="fehler-name"
+                placeholder="z. B. Spaghetti Bolognese">
               <p class="fehler-text" id="fehler-name"></p>
             </div>
 
             <div class="formular-raster">
               <div class="formular-feld">
                 <label for="rezept-kategorie">Kategorie</label>
-                <select id="rezept-kategorie" name="rezept-kategorie">
+                <select id="rezept-kategorie">
                   <option value="fruehstueck">Frühstück</option>
                   <option value="hauptgericht" selected>Hauptgericht</option>
                   <option value="dessert">Dessert</option>
@@ -56,7 +59,7 @@
 
               <div class="formular-feld">
                 <label for="rezept-dauer">Zubereitungszeit (Minuten)</label>
-                <input type="number" id="rezept-dauer" aria-describedby="fehler-dauer" name="rezept-dauer" min="1" max="600" step="1"
+                <input type="number" id="rezept-dauer" aria-describedby="fehler-dauer" min="1" max="600" step="1"
                   placeholder="z. B. 30">
                 <p class="fehler-text" id="fehler-dauer"></p>
               </div>
@@ -64,14 +67,14 @@
 
             <div class="formular-feld">
               <label for="rezept-zutaten">Zutaten (eine pro Zeile)</label>
-              <textarea id="rezept-zutaten" aria-describedby="fehler-zutaten" name="rezept-zutaten" rows="5"
+              <textarea id="rezept-zutaten" aria-describedby="fehler-zutaten" rows="5"
                 placeholder="z. B. 200 g Spaghetti"></textarea>
               <p class="fehler-text" id="fehler-zutaten"></p>
             </div>
 
             <div class="formular-feld">
               <label for="rezept-zubereitung">Zubereitung (ein Schritt pro Zeile)</label>
-              <textarea id="rezept-zubereitung" aria-describedby="fehler-zubereitung" name="rezept-zubereitung" rows="6"
+              <textarea id="rezept-zubereitung" aria-describedby="fehler-zubereitung" rows="6"
                 placeholder="z. B. Wasser salzen und zum Kochen bringen"></textarea>
               <p class="fehler-text" id="fehler-zubereitung"></p>
             </div>
@@ -84,6 +87,7 @@
         </div>
       </section>
 
+      <!-- Ansicht: Meine Rezepte -->
       <section id="ansicht-meine-rezepte" class="ansicht">
         <div class="ansicht-hero ansicht-hero--szene">
           <div class="ansicht-hero-inhalt">
@@ -113,6 +117,7 @@
         <div id="rezept-liste" class="rezept-liste"></div>
       </section>
 
+      <!-- Ansicht: Über uns -->
       <section id="ansicht-ueber-uns" class="ansicht">
         <div class="ansicht-hero ansicht-hero--szene">
           <div class="ansicht-hero-inhalt">
@@ -154,6 +159,7 @@
       </footer>
     </main>
   </div>
+  <!-- Detailansicht eines Rezepts -->
   <dialog id="rezept-dialog" aria-labelledby="dialog-titel">
     <h2 id="dialog-titel"></h2>
     <p id="dialog-info"></p>
@@ -166,7 +172,6 @@
 
     <button type="button" id="dialog-schliessen" class="button-sekundaer">Schließen</button>
   </dialog>
-
 
   <script src="js/speicher.js"></script>
   <script src="js/anzeige.js"></script>
